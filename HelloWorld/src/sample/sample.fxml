@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" style="-fx-background-color: #bddbfa; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OwnController">
+   <children>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="367.0" layoutY="35.0" mnemonicParsing="false" onAction="#toLoadingScreen" prefHeight="110.0" prefWidth="167.0" style="-fx-background-radius: 20;" stylesheets="@buttons/play_button.css" text="PLAY" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Purisa" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="34.0" layoutY="514.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="49.0" prefWidth="102.0" stylesheets="@buttons/exit_button.css" text="EXIT" textAlignment="CENTER" textFill="#fff9f9">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="791.0" layoutY="196.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#addTimeLimit" prefHeight="35.0" prefWidth="38.0" style="-fx-background-radius: 25;" stylesheets="@buttons/plus.css" text="+" textFill="#1b4c85">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <Button layoutX="550.0" layoutY="195.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#minusTimeLimit" prefHeight="35.0" prefWidth="38.0" style="-fx-background-radius: 25;" stylesheets="@buttons/minus.css" text="-" textAlignment="JUSTIFY" textFill="#1b4c85">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Text fill="#fffff8" layoutX="38.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Your Time Limit">
+         <font>
+            <Font name="Purisa Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="id_time_limit" fill="#fffff8" layoutX="641.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1:30" textAlignment="CENTER" wrappingWidth="102.0">
+         <font>
+            <Font name="Purisa Bold" size="29.0" />
+         </font>
+      </Text>
+      <Text fill="#fffff8" layoutX="34.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Difficulty" textAlignment="CENTER" wrappingWidth="374.1999969482422">
+         <font>
+            <Font name="Purisa Bold" size="30.0" />
+         </font>
+      </Text>
+      <Button layoutX="550.0" layoutY="294.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#downDifficulty" prefHeight="35.0" prefWidth="38.0" style="-fx-background-radius: 25;" stylesheets="@buttons/minus.css" text="-" textAlignment="JUSTIFY" textFill="#1b4c85">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="791.0" layoutY="294.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#upDifficulty" prefHeight="35.0" prefWidth="38.0" style="-fx-background-radius: 25;" stylesheets="@buttons/plus.css" text="+" textFill="#1b4c85">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Text fx:id="id_difficulty" fill="#fffff8" layoutX="641.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mid" textAlignment="CENTER" wrappingWidth="102.0">
+         <font>
+            <Font name="Purisa Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#fffff8" layoutX="34.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hints" textAlignment="CENTER" wrappingWidth="374.1999969482422">
+         <font>
+            <Font name="Purisa Bold" size="30.0" />
+         </font>
+      </Text>
+      <Button layoutX="791.0" layoutY="386.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#onHints" prefHeight="35.0" prefWidth="38.0" style="-fx-background-radius: 25;" stylesheets="@buttons/plus.css" text="+" textFill="#1b4c85">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="550.0" layoutY="386.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#offHints" prefHeight="35.0" prefWidth="38.0" style="-fx-background-radius: 25;" stylesheets="@buttons/minus.css" text="-" textAlignment="JUSTIFY" textFill="#1b4c85">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Text fx:id="id_hints" fill="#fffff8" layoutX="641.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="On" textAlignment="CENTER" wrappingWidth="102.0">
+         <font>
+            <Font name="Purisa Bold" size="25.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
