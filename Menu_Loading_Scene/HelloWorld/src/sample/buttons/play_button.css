@@ -1,0 +1,22 @@
+.button {
+  -fx-box-shadow:inset 0px 0px 15px 3px #23395e;
+  -fx-background-color:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+  -fx-border-radius:17px;
+  -fx-padding:25px 41px;
+  -fx-text-shadow:0px 1px 0px #263666;
+  -fx-border-width:1px;
+  -fx-border-color: #1f2f47;
+  -fx-font-family:Purisa;
+  -fx-border-style: solid;
+  -fx-font-size:29px;
+  -fx-position: relative;
+  -fx-background-radius:20px;
+}
+.button:hover {
+  -fx-background-color:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+  -fx-border-style: solid;
+}
+.button:pressed {
+  -fx-background-color:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+  -fx-border-style: solid;
+}
