@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #bddbfa; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EnterNamesController">
+    <children>
+        <Button fx:id="okButton" layoutX="514.0" layoutY="599.0" mnemonicParsing="false" onAction="#toGame" stylesheets="@play_button.css" text="OK" textFill="WHITE">
+            <font>
+                <Font name="Purisa Bold" size="25.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <TextField fx:id="blueLeaderField" alignment="CENTER" layoutX="136.0" layoutY="230.0" opacity="0.8" prefHeight="62.0" prefWidth="280.0" style="-fx-font-family: Purisa; -fx-font-size: 18; -fx-text-fill: blue;" />
+        <TextField fx:id="redLeaderField" alignment="CENTER" layoutX="754.0" layoutY="230.0" opacity="0.8" prefHeight="62.0" prefWidth="280.0" style="-fx-font-family: Purisa; -fx-font-size: 18; -fx-text-fill: red;" />
+        <TextField fx:id="blueOperativeField" alignment="CENTER" layoutX="136.0" layoutY="465.0" opacity="0.8" prefHeight="62.0" prefWidth="280.0" style="-fx-font-family: Purisa; -fx-font-size: 18; -fx-text-fill: blue;" />
+        <TextField fx:id="redOperativeField" alignment="CENTER" layoutX="754.0" layoutY="465.0" opacity="0.8" prefHeight="62.0" prefWidth="280.0" style="-fx-font-family: Purisa; -fx-font-size: 18; -fx-text-fill: red;" />
+      <Text layoutX="199.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blue leader:">
+         <font>
+            <Font name="Purisa Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="820.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red leader:">
+         <font>
+            <Font name="Purisa Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="178.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blue operative:">
+         <font>
+            <Font name="Purisa Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="799.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red operative:">
+         <font>
+            <Font name="Purisa Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="417.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your names:">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>
