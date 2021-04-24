@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #bddbfa; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.HintScreenController">
+    <children>
+        <Button layoutX="961.0" layoutY="587.0" mnemonicParsing="false" onAction="#toLoadingScreen" prefHeight="157.0" prefWidth="159.0" styleClass="giveHint" stylesheets="@../Buttons/giveHint.css" text="CONFIRM&#10;HINT" textAlignment="CENTER">
+            <font>
+                <Font name="Purisa Bold" size="25.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+        <Text fill="#1b4c85" layoutX="41.0" layoutY="665.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your hint proposition:" wrappingWidth="399.7294921875">
+            <font>
+                <Font name="Purisa Bold" size="30.0" />
+            </font>
+        </Text>
+        <GridPane layoutX="41.0" layoutY="52.0" prefHeight="550.0" prefWidth="799.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button mnemonicParsing="false" prefHeight="139.0" prefWidth="160.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="145.0" prefWidth="160.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+                <Button mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="Purisa Bold" size="20.0" />
+                    </font></Button>
+            </children>
+        </GridPane>
+        <Text fill="#ededed" layoutX="905.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score" textAlignment="CENTER" wrappingWidth="168.0">
+            <font>
+                <Font name="Purisa Bold" size="48.0" />
+            </font>
+        </Text>
+        <Text fill="#0227f5" layoutX="915.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="CENTER" wrappingWidth="55.7294921875">
+            <font>
+                <Font name="Purisa Bold" size="96.0" />
+            </font>
+        </Text>
+        <Text fill="#ededed" layoutX="966.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" textAlignment="CENTER" wrappingWidth="41.7294921875">
+            <font>
+                <Font name="Purisa Bold" size="68.0" />
+            </font>
+        </Text>
+        <Text fill="RED" layoutX="1002.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="CENTER" wrappingWidth="55.7294921875">
+            <font>
+                <Font name="Purisa Bold" size="96.0" />
+            </font>
+        </Text>
+        <Circle fill="#bac0c6" layoutX="1046.0" layoutY="98.0" radius="84.0" stroke="BLACK" strokeType="INSIDE" />
+        <Text fx:id="time" layoutX="959.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1:30" textAlignment="CENTER" wrappingWidth="174.0">
+            <font>
+                <Font name="Purisa Bold" size="64.0" />
+            </font>
+        </Text>
+      <TextField layoutX="441.0" layoutY="633.0" prefHeight="41.0" prefWidth="305.0" style="-fx-font-family: Purisa;">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <Text fill="#1b4c85" layoutX="102.0" layoutY="720.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of words:" wrappingWidth="328.7294921875">
+         <font>
+            <Font name="Purisa Bold" size="30.0" />
+         </font>
+      </Text>
+      <TextField layoutX="441.0" layoutY="688.0" prefHeight="41.0" prefWidth="42.0" style="-fx-font-family: Purisa;">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+    </children>
+</AnchorPane>
