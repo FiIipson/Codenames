@@ -1,0 +1,19 @@
+.words {
+	-fx-background-color:linear-gradient(to bottom, #c2bac2 5%, #3d393d 100%);
+	-fx-border-width: 2px;
+	-fx-border-color: #1f2f47;
+	-fx-border-style: solid;
+
+    -fx-cursor: hand;
+	-fx-font-family:Purisa;
+    -fx-fond-color: "blue";
+	-fx-font-size:25px;
+}
+
+.words:hover {
+	-fx-background-color:linear-gradient(to bottom, #c2bac2 100%, #3d393d 5%);
+}
+
+.words:pressed {
+	-fx-background-color:linear-gradient(to bottom, #c2bac2 5%, #3d393d 100%);
+}
