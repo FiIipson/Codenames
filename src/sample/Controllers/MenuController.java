@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,11 +18,9 @@ public class MenuController {
   Parent root;
   @FXML
   Stage stage;
-  @FXML
-  Scene scene;
 
   @FXML
-  protected void quitGame(ActionEvent e) {
+  protected void quitGame() {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Exit");
     alert.setHeaderText("");

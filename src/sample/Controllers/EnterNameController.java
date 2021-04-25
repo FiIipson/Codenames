@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -21,8 +20,6 @@ public class EnterNameController {
     Stage stage;
     @FXML
     Parent root;
-    @FXML
-    Button okButton;
     @FXML
     TextField blueLeaderField;
     @FXML

@@ -31,7 +31,7 @@ public class HintScreenController {
             time.setText("∞");
         }
         else {
-            time.setText(String.valueOf(time_limit / 60 + ":" + seconds + "0"));
+            time.setText(time_limit / 60 + ":" + seconds + "0");
         }
     }
 

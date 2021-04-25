@@ -6,8 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -24,8 +22,6 @@ public class GameSettingsController {
     @FXML
     Stage stage;
     @FXML
-    Scene scene;
-    @FXML
     public Text id_hints;
     @FXML
     public Text id_time_limit;
@@ -33,7 +29,7 @@ public class GameSettingsController {
     public Text id_difficulty;
     @FXML
     public void initialize() {
-        id_time_limit.setText(String.valueOf(time_limit / 60) + ":" + seconds + "0");
+        id_time_limit.setText(time_limit / 60 + ":" + seconds + "0");
         id_hints.setText(hints ? "On" : "Off");
         if (difficulty == 0) {
           id_difficulty.setText("Easy");
@@ -44,17 +40,17 @@ public class GameSettingsController {
         }
     }
     @FXML
-    protected void onHints(ActionEvent e) {
+    protected void onHints() {
         hints = true;
         id_hints.setText("On");
     }
     @FXML
-    protected void offHints(ActionEvent e) {
+    protected void offHints() {
         hints = false;
         id_hints.setText("Off");
     }
     @FXML
-    protected void addTimeLimit(ActionEvent e) {
+    protected void addTimeLimit() {
         if (time_limit == 210) return;
         if (time_limit == 180) {
             id_time_limit.setText("∞");
@@ -63,22 +59,22 @@ public class GameSettingsController {
         }
         else time_limit += 30;
         seconds = time_limit % 60 / 10;
-        id_time_limit.setText(String.valueOf(time_limit / 60) + ":" + seconds + "0");
+        id_time_limit.setText(time_limit / 60 + ":" + seconds + "0");
     }
     @FXML
-    protected void upDifficulty(ActionEvent e) {
+    protected void upDifficulty() {
         if (difficulty < 2) difficulty++;
         if (difficulty == 1) id_difficulty.setText("Mid");
         else id_difficulty.setText("Hard");
     }
     @FXML
-    protected void downDifficulty(ActionEvent e) {
+    protected void downDifficulty() {
         if (difficulty > 0) difficulty--;
         if (difficulty == 1) id_difficulty.setText("Mid");
         else id_difficulty.setText("Easy");
     }
     @FXML
-    protected void minusTimeLimit(ActionEvent e) {
+    protected void minusTimeLimit() {
         if (time_limit == 0) {
             id_time_limit.setText("∞");
             return;
@@ -89,7 +85,7 @@ public class GameSettingsController {
             return;
         }
         seconds = time_limit % 60 / 10;
-        id_time_limit.setText(String.valueOf(time_limit / 60) + ":" + seconds + "0");
+        id_time_limit.setText(time_limit / 60 + ":" + seconds + "0");
     }
     @FXML
     protected void toGame(ActionEvent e) throws IOException {

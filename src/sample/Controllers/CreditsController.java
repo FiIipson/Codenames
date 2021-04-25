@@ -19,8 +19,6 @@ public class CreditsController {
     @FXML
     Stage stage;
     @FXML
-    Scene scene;
-    @FXML
     protected void back(ActionEvent e) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Menu.fxml")));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
