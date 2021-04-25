@@ -1,0 +1,16 @@
+.inspection {
+	-fx-background-color:linear-gradient(to bottom, #00ff40 5%, #347a0b 100%);
+	-fx-border-radius: 20px;
+	-fx-background-radius: 20px;
+	-fx-font-family:Purisa Bold;
+	-fx-font-size:25px;
+	-fx-border-width: 1px;
+	-fx-border-color: #1f2f47;
+	-fx-border-style: solid;
+}
+.inspection:hover {
+	-fx-background-color:linear-gradient(to bottom, #00ff40 100%, #347a0b 5%);
+}
+.inspection:pressed {
+	-fx-background-color:linear-gradient(to bottom, #00ff40 5%, #347a0b 100%);
+}
