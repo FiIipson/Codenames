@@ -12,7 +12,7 @@ public class AlertBoxController {
     Text errorMessage;
     @FXML
     protected void initialize() {
-        errorMessage.setText(EnterName_Global.errorMessage(EnterName_Global.validate(EnterName_Global.blueLeaderName, EnterName_Global.blueOperativeName, EnterName_Global.redLeaderName, EnterName_Global.redOperativeName)));
+        errorMessage.setText(EnterName_Global.currentError);
     }
     @FXML
     public void closeButton() {

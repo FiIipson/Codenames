@@ -11,11 +11,41 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+import static sample.Controllers.ErrorCode.*;
+import static sample.Controllers.ErrorCode.NAME_MISSING;
+
 enum ErrorCode {
     NAMES_OK, NAME_MISSING, NAME_TOO_LONG, NAMES_NOT_PAIRWISE_DISTINCT
 }
 
 public class EnterNameController {
+
+    public static String errorMessage (ErrorCode e) {
+        if (e == NAME_MISSING)
+            return "Please enter all the names.";
+        if (e == NAME_TOO_LONG)
+            return  "The names cannot be longer than " + EnterName_Global.MAX_NAME_LENGTH + " characters.";
+        if (e == NAMES_NOT_PAIRWISE_DISTINCT)
+            return "At least two of the names are the same.";
+        return "Everything seems to be fine. This shouldn't have happened.";
+    }
+
+    public static ErrorCode validate (String ... names) {
+        //name missing check, name too long check
+        for (String name : names) {
+            if (name.equals("")) return NAME_MISSING;
+            if (name.length() > EnterName_Global.MAX_NAME_LENGTH) return ErrorCode.NAME_TOO_LONG;
+        }
+        //pairwise distinct check
+        for (int i = 0; i < names.length - 1; ++i) {
+            for (int j = i + 1; j < names.length; ++j) {
+                if (names[i].equals(names[j])) return ErrorCode.NAMES_NOT_PAIRWISE_DISTINCT;
+            }
+        }
+
+        return ErrorCode.NAMES_OK;
+    }
+
     @FXML
     Stage stage;
     @FXML
@@ -35,8 +65,9 @@ public class EnterNameController {
         EnterName_Global.blueOperativeName = blueOperativeField.getText();
         EnterName_Global.redLeaderName = redLeaderField.getText();
         EnterName_Global.redOperativeName = redOperativeField.getText();
-        ErrorCode e = EnterName_Global.validate(EnterName_Global.blueLeaderName, EnterName_Global.blueOperativeName, EnterName_Global.redLeaderName, EnterName_Global.redOperativeName);
+        ErrorCode e = validate(EnterName_Global.blueLeaderName, EnterName_Global.blueOperativeName, EnterName_Global.redLeaderName, EnterName_Global.redOperativeName);
         if (e != ErrorCode.NAMES_OK) {
+            EnterName_Global.currentError = errorMessage(e);
             Stage alertBox = new Stage();
             alertBox.initModality(Modality.APPLICATION_MODAL);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scenes/AlertBox.fxml"));
@@ -47,7 +78,6 @@ public class EnterNameController {
         } else {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scenes/NeutralScreen.fxml"));
             root = loader.load();
-
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
