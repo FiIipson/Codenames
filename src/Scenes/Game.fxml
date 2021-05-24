@@ -166,7 +166,7 @@
                 <Font name="Purisa Bold" size="48.0" />
             </font>
         </Text>
-        <Text fill="#0227f5" layoutX="915.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="CENTER" wrappingWidth="55.7294921875">
+        <Text fx:id="blueScore" fill="#0227f5" layoutX="915.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="CENTER" wrappingWidth="55.7294921875">
             <font>
                 <Font name="Purisa Bold" size="96.0" />
             </font>
@@ -176,7 +176,7 @@
                 <Font name="Purisa Bold" size="68.0" />
             </font>
         </Text>
-        <Text fill="RED" layoutX="1002.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="CENTER" wrappingWidth="55.7294921875">
+        <Text fx:id="redScore" fill="RED" layoutX="1002.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="CENTER" wrappingWidth="55.7294921875">
             <font>
                 <Font name="Purisa Bold" size="96.0" />
             </font>

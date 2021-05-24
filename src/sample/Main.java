@@ -14,7 +14,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Menu.fxml")));
         primaryStage.setTitle("Codenames The Game");
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
