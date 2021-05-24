@@ -168,4 +168,7 @@
             </font>
         </Text>
     </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
 </AnchorPane>

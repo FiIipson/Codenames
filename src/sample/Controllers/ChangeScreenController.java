@@ -23,27 +23,27 @@ public class ChangeScreenController {
 
     @FXML
     public void initialize() {
-        if (EnterName_Global.red) {
-            if (EnterName_Global.operative) {
-                playerName.setText(EnterName_Global.redOperativeName);
-                EnterName_Global.red = !EnterName_Global.red;
+        if (GlobalVar.red) {
+            if (GlobalVar.operative) {
+                playerName.setText(GlobalVar.redOperativeName);
+                GlobalVar.red = !GlobalVar.red;
             }
             else {
-                playerName.setText(EnterName_Global.redLeaderName);
+                playerName.setText(GlobalVar.redLeaderName);
             }
             playerName.setFill(Color.RED);
         }
         else {
-            if (EnterName_Global.operative) {
-                playerName.setText(EnterName_Global.blueOperativeName);
-                EnterName_Global.red = !EnterName_Global.red;
+            if (GlobalVar.operative) {
+                playerName.setText(GlobalVar.blueOperativeName);
+                GlobalVar.red = !GlobalVar.red;
             }
             else {
-                playerName.setText(EnterName_Global.blueLeaderName);
+                playerName.setText(GlobalVar.blueLeaderName);
             }
             playerName.setFill(Color.BLUE);
         }
-        EnterName_Global.operative = !EnterName_Global.operative;
+        GlobalVar.operative = !GlobalVar.operative;
     }
 
     @FXML
@@ -57,7 +57,6 @@ public class ChangeScreenController {
         else {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scenes/Game.fxml"));
             root = loader.load();
-
 
             hint_screen = true;
         }

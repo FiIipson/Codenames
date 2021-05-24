@@ -22,8 +22,8 @@ public class NeutralScreenController {
 
     @FXML
     public void initialize() {
-        int time_limit = GameSettingsController.time_limit;
-        int seconds = GameSettingsController.seconds;
+        int time_limit = GlobalVar.time_limit;
+        int seconds = GlobalVar.seconds;
         if (time_limit == 0 || time_limit == 210) {
             time.setText("∞");
         }

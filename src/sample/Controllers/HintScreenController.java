@@ -48,8 +48,8 @@ public class HintScreenController {
 
     @FXML
     public void initialize() {
-        int time_limit = GameSettingsController.time_limit;
-        int seconds = GameSettingsController.seconds;
+        int time_limit = GlobalVar.time_limit;
+        int seconds = GlobalVar.seconds;
         if (time_limit == 0 || time_limit == 210) {
             time.setText("∞");
         }
@@ -62,14 +62,14 @@ public class HintScreenController {
     public void toLoadingScreen(ActionEvent e) throws IOException {
         HintErrorCode err = validate(HintWordLeader.getText(), HintNumberLeader.getText());
         if (err == HintErrorCode.ALL_GOOD) {
-            EnterName_Global.hintString = HintWordLeader.getText();
-            EnterName_Global.hintNumber = Integer.parseInt(HintNumberLeader.getText());
+            GlobalVar.hintString = HintWordLeader.getText();
+            GlobalVar.hintNumber = Integer.parseInt(HintNumberLeader.getText());
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/ChangeScreen.fxml")));
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } else {
-            EnterName_Global.currentError = hintErrorMessage(err);
+            GlobalVar.currentError = hintErrorMessage(err);
             Stage alertBox = new Stage();
             alertBox.initModality(Modality.APPLICATION_MODAL);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scenes/AlertBox.fxml"));
