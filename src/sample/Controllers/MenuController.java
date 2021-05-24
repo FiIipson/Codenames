@@ -31,7 +31,7 @@ public class MenuController {
 
     alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
 
-    if (alert.showAndWait().get() == buttonTypeYes) {
+    if (alert.showAndWait().orElse(null) == buttonTypeYes) {
       System.exit(0);
     }
   }

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -15,16 +16,21 @@ import java.io.IOException;
 import java.util.Objects;
 
 enum HintErrorCode {
-    MORE_THAN_ONE_WORD, EMPTY_HINT, NOT_A_WORD, NOT_A_NUMBER, NOT_A_VALID_NUMBER, ALL_GOOD
+    MORE_THAN_ONE_WORD, EMPTY_HINT, NOT_A_WORD, NOT_A_NUMBER, NOT_A_VALID_NUMBER, WORD_FROM_THE_BOARD, ALL_GOOD
 }
 
 public class HintScreenController {
     public HintErrorCode validate(String word, String number) {
         if (word.contains(" ")) return HintErrorCode.MORE_THAN_ONE_WORD;
         if (word.equals("")) return HintErrorCode.EMPTY_HINT;
-        if (!word.matches("[A-z]*")) return HintErrorCode.NOT_A_WORD;
-        if (!number.matches("[0-9]*")) return HintErrorCode.NOT_A_NUMBER;
-        if (Integer.parseInt(number) < 0 || Integer.parseInt(number) >= 9) return HintErrorCode.NOT_A_VALID_NUMBER;
+        if (!word.matches("^([a-zA-Z])*$")) return HintErrorCode.NOT_A_WORD;
+        if (!number.matches("^[0-9]*$")) return HintErrorCode.NOT_A_NUMBER;
+        if (Integer.parseInt(number) < 0) return HintErrorCode.NOT_A_NUMBER;
+        else {
+            if (GlobalVar.red && Integer.parseInt(number) > GlobalVar.redLeft) return HintErrorCode.NOT_A_VALID_NUMBER;
+            if (!GlobalVar.red && Integer.parseInt(number) > GlobalVar.blueLeft) return HintErrorCode.NOT_A_VALID_NUMBER;
+        }
+        for (GlobalVar.Word w : GlobalVar.word) if (word.equalsIgnoreCase(w.getText())) return HintErrorCode.WORD_FROM_THE_BOARD;
         return HintErrorCode.ALL_GOOD;
     }
 
@@ -34,6 +40,7 @@ public class HintScreenController {
         if (err == HintErrorCode.NOT_A_WORD) return "Your hint must be a word.";
         if (err == HintErrorCode.NOT_A_NUMBER) return "Please enter a valid number.";
         if (err == HintErrorCode.NOT_A_VALID_NUMBER) return "The number is too big.";
+        if (err == HintErrorCode.WORD_FROM_THE_BOARD) return "You cannot use one of the words from the board.";
         return "Everything seems to be fine. This shouldn't have happened.";
     }
 
@@ -45,16 +52,54 @@ public class HintScreenController {
     Stage stage;
     @FXML
     Text time;
+    @FXML
+    Text blueScore;
+    @FXML
+    Text redScore;
+    @FXML public Button aa;
+    @FXML public Button ab;
+    @FXML public Button ac;
+    @FXML public Button ad;
+    @FXML public Button ae;
+    @FXML public Button ba;
+    @FXML public Button bb;
+    @FXML public Button bc;
+    @FXML public Button bd;
+    @FXML public Button be;
+    @FXML public Button ca;
+    @FXML public Button cb;
+    @FXML public Button cc;
+    @FXML public Button cd;
+    @FXML public Button ce;
+    @FXML public Button da;
+    @FXML public Button db;
+    @FXML public Button dc;
+    @FXML public Button dd;
+    @FXML public Button de;
+    @FXML public Button ea;
+    @FXML public Button eb;
+    @FXML public Button ec;
+    @FXML public Button ed;
+    @FXML public Button ee;
 
     @FXML
     public void initialize() {
-        int time_limit = GlobalVar.time_limit;
+        int time_limit = GlobalVar.timeLimit;
         int seconds = GlobalVar.seconds;
-        if (time_limit == 0 || time_limit == 210) {
-            time.setText("∞");
-        }
-        else {
-            time.setText(time_limit / 60 + ":" + seconds + "0");
+        if (time_limit == 0 || time_limit == 210) time.setText("∞");
+        else time.setText(time_limit / 60 + ":" + seconds + "0");
+        redScore.setText(String.valueOf(GlobalVar.redTotal - GlobalVar.redLeft));
+        blueScore.setText(String.valueOf(GlobalVar.blueTotal - GlobalVar.blueLeft));
+
+        Button [] button = new Button[] {aa, ab, ac, ad, ae, ba, bb, bc, bd, be, ca, cb, cc, cd, ce, da, db, dc, dd, de, ea, eb, ec, ed, ee};
+        int count = 0;
+        for (Button b : button) {
+            b.setText(GlobalVar.word[count].getText());
+            // YOU MAY WANNA MAKE THESE COLORS PRETTIER
+            if (GlobalVar.word[count].getType() == GlobalVar.WordType.BLUE) b.setStyle("-fx-background-color: blue");
+            if (GlobalVar.word[count].getType() == GlobalVar.WordType.RED) b.setStyle("-fx-background-color: red");
+            if (GlobalVar.word[count].getType() == GlobalVar.WordType.BOMB) b.setStyle("-fx-background-color: black");
+            if (GlobalVar.word[count++].getType() == GlobalVar.WordType.GUESSED) b.setStyle("-fx-background-color: green");
         }
     }
 

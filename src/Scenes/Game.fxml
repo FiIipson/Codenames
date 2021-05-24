@@ -68,7 +68,7 @@
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ae" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4">
+                <Button fx:id="ae" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word " GridPane.columnIndex="4">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
