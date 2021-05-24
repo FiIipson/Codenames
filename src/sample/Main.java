@@ -41,6 +41,10 @@ public class Main extends Application {
     }
 
 
+    void elo() {
+        System.out.println("elo");
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
