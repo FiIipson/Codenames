@@ -35,7 +35,7 @@ public class GlobalVar {
 
     // ALL WORDS
     enum WordType {
-        BLUE, RED, NEUTRAL, BOMB, GUESSED
+        BLUE, RED, NEUTRAL, BOMB, GUESSED_RED, GUESSED_BLUE, GUESSED_NEUTRAL, GUESSED_BOMB
     }
 
     public static class Word {

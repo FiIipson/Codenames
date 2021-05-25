@@ -48,103 +48,103 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="ab" mnemonicParsing="false" prefHeight="139.0" prefWidth="160.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1">
+                <Button fx:id="ab" mnemonicParsing="false" onAction="#clickedAb" prefHeight="139.0" prefWidth="160.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ac" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2">
+                <Button fx:id="ac" mnemonicParsing="false" onAction="#clickedAc" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="bb" mnemonicParsing="false" prefHeight="145.0" prefWidth="160.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="bb" mnemonicParsing="false" onAction="#clickedBb" prefHeight="145.0" prefWidth="160.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="aa" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word">
+                <Button fx:id="aa" mnemonicParsing="false" onAction="#clickedAa" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ad" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3">
+                <Button fx:id="ad" mnemonicParsing="false" onAction="#clickedAd" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ae" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word " GridPane.columnIndex="4">
+                <Button fx:id="ae" mnemonicParsing="false" onAction="#clickedAe" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word " GridPane.columnIndex="4">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="be" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                <Button fx:id="be" mnemonicParsing="false" onAction="#clickedBe" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="1">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="bd" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                <Button fx:id="bd" mnemonicParsing="false" onAction="#clickedBd" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="1">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="cb" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Button fx:id="cb" mnemonicParsing="false" onAction="#clickedCb" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="bc" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button fx:id="bc" mnemonicParsing="false" onAction="#clickedBc" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ba" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="1">
+                <Button fx:id="ba" mnemonicParsing="false" onAction="#clickedBa" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="1">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="cd" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                <Button fx:id="cd" mnemonicParsing="false" onAction="#clickedCd" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="2">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="cc" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                <Button fx:id="cc" mnemonicParsing="false" onAction="#clickedCc" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="2">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="db" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <Button fx:id="db" mnemonicParsing="false" onAction="#clickedDb" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ca" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="2">
+                <Button fx:id="ca" mnemonicParsing="false" onAction="#clickedCa" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="2">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ce" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                <Button fx:id="ce" mnemonicParsing="false" onAction="#clickedCe" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="2">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="dd" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                <Button fx:id="dd" mnemonicParsing="false" onAction="#clickedDd" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="3">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="dc" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                <Button fx:id="dc" mnemonicParsing="false" onAction="#clickedDc" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="3">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="eb" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <Button fx:id="eb" mnemonicParsing="false" onAction="#clickedEb" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="1" GridPane.rowIndex="4">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="da" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="3">
+                <Button fx:id="da" mnemonicParsing="false" onAction="#clickedDa" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="3">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="de" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                <Button fx:id="de" mnemonicParsing="false" onAction="#clickedDe" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="3">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ed" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                <Button fx:id="ed" mnemonicParsing="false" onAction="#clickedEd" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="3" GridPane.rowIndex="4">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ec" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                <Button fx:id="ec" mnemonicParsing="false" onAction="#clickedEc" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="2" GridPane.rowIndex="4">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ea" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="4">
+                <Button fx:id="ea" mnemonicParsing="false" onAction="#clickedEa" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.rowIndex="4">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>
-                <Button fx:id="ee" mnemonicParsing="false" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                <Button fx:id="ee" mnemonicParsing="false" onAction="#clickedEe" prefHeight="179.0" prefWidth="227.0" styleClass="words" stylesheets="@../Buttons/words.css" text="Your&#10;Word" GridPane.columnIndex="4" GridPane.rowIndex="4">
                     <font>
                         <Font name="Purisa Bold" size="20.0" />
                     </font></Button>

@@ -30,7 +30,11 @@ public class HintScreenController {
             if (GlobalVar.red && Integer.parseInt(number) > GlobalVar.redLeft) return HintErrorCode.NOT_A_VALID_NUMBER;
             if (!GlobalVar.red && Integer.parseInt(number) > GlobalVar.blueLeft) return HintErrorCode.NOT_A_VALID_NUMBER;
         }
-        for (GlobalVar.Word w : GlobalVar.word) if (word.equalsIgnoreCase(w.getText())) return HintErrorCode.WORD_FROM_THE_BOARD;
+        for (GlobalVar.Word w : GlobalVar.word) {
+            if (word.equalsIgnoreCase(w.getText()) &&
+                    (w.getType() == GlobalVar.WordType.RED || w.getType() == GlobalVar.WordType.BLUE ||
+                            w.getType() == GlobalVar.WordType.BOMB || w.getType() == GlobalVar.WordType.NEUTRAL)) return HintErrorCode.WORD_FROM_THE_BOARD;
+        }
         return HintErrorCode.ALL_GOOD;
     }
 
@@ -99,7 +103,9 @@ public class HintScreenController {
             if (GlobalVar.word[count].getType() == GlobalVar.WordType.BLUE) b.setStyle("-fx-background-color: blue");
             if (GlobalVar.word[count].getType() == GlobalVar.WordType.RED) b.setStyle("-fx-background-color: red");
             if (GlobalVar.word[count].getType() == GlobalVar.WordType.BOMB) b.setStyle("-fx-background-color: black");
-            if (GlobalVar.word[count++].getType() == GlobalVar.WordType.GUESSED) b.setStyle("-fx-background-color: green");
+            if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_RED || GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BLUE ||
+                    GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_NEUTRAL || GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BOMB) b.setStyle("-fx-background-color: green");
+            count++;
         }
     }
 
