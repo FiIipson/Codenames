@@ -55,9 +55,10 @@ public class GameController {
     @FXML public Button ed;
     @FXML public Button ee;
     boolean didTheyTry;
+    boolean hintNumberZero;
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
         didTheyTry = false;
         hintWord.setText(GlobalVar.hintString);
         hintNumber.setText(String.valueOf(GlobalVar.hintNumber));
@@ -78,6 +79,11 @@ public class GameController {
             if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BOMB) b.setStyle("-fx-background-color: black");
             if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_NEUTRAL) b.setStyle("-fx-background-color: grey");
             count++;
+        }
+        hintNumberZero = GlobalVar.hintNumber == 0;
+        if (hintNumberZero) {
+            showAlert("Your leader gave you a hint with number 0. According to the rules" +
+                    " you are allowed to guess as many words as you want (at least one).");
         }
     }
 
@@ -111,7 +117,7 @@ public class GameController {
                 toLoadingScreen(e);
             }
             else {
-                GlobalVar.hintNumber--;
+                if (!hintNumberZero) GlobalVar.hintNumber--;
                 if (GlobalVar.hintNumber >= 0) hintNumber.setText(String.valueOf(GlobalVar.hintNumber));
                 endOfWords(e);
             }
@@ -131,7 +137,7 @@ public class GameController {
                 toLoadingScreen(e);
             }
             else {
-                GlobalVar.hintNumber--;
+                if (!hintNumberZero) GlobalVar.hintNumber--;
                 if (GlobalVar.hintNumber >= 0) hintNumber.setText(String.valueOf(GlobalVar.hintNumber));
                 endOfWords(e);
             }
