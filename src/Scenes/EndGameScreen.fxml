@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1150.0" snapToPixel="false" style="-fx-background-color: #bddbfa; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.EndGameController">
-    <children>
         <Button layoutX="337.0" layoutY="544.0" mnemonicParsing="false" onAction="#back" prefHeight="112.0" prefWidth="168.0" stylesheets="@../Buttons/exit_button.css" text="END" textAlignment="CENTER" textFill="#fff9f9">
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -23,5 +22,4 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-    </children>
 </AnchorPane>

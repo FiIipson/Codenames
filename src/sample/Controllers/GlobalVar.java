@@ -44,7 +44,7 @@ public class GlobalVar {
 
     // ALL POSSIBLE RESULTS
     enum Result {
-        BLUE, RED, BLUE_BOM, RED_BOMB;
+        BLUE, RED, BLUE_BOM, RED_BOMB
     }
 
     public static class Word {
