@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+import static java.lang.Math.min;
+
 public class GameController {
     @FXML
     Parent root;
@@ -29,31 +31,56 @@ public class GameController {
     Text redScore;
     @FXML
     Text blueScore;
-    @FXML public Button aa;
-    @FXML public Button ab;
-    @FXML public Button ac;
-    @FXML public Button ad;
-    @FXML public Button ae;
-    @FXML public Button ba;
-    @FXML public Button bb;
-    @FXML public Button bc;
-    @FXML public Button bd;
-    @FXML public Button be;
-    @FXML public Button ca;
-    @FXML public Button cb;
-    @FXML public Button cc;
-    @FXML public Button cd;
-    @FXML public Button ce;
-    @FXML public Button da;
-    @FXML public Button db;
-    @FXML public Button dc;
-    @FXML public Button dd;
-    @FXML public Button de;
-    @FXML public Button ea;
-    @FXML public Button eb;
-    @FXML public Button ec;
-    @FXML public Button ed;
-    @FXML public Button ee;
+    @FXML
+    public Button aa;
+    @FXML
+    public Button ab;
+    @FXML
+    public Button ac;
+    @FXML
+    public Button ad;
+    @FXML
+    public Button ae;
+    @FXML
+    public Button ba;
+    @FXML
+    public Button bb;
+    @FXML
+    public Button bc;
+    @FXML
+    public Button bd;
+    @FXML
+    public Button be;
+    @FXML
+    public Button ca;
+    @FXML
+    public Button cb;
+    @FXML
+    public Button cc;
+    @FXML
+    public Button cd;
+    @FXML
+    public Button ce;
+    @FXML
+    public Button da;
+    @FXML
+    public Button db;
+    @FXML
+    public Button dc;
+    @FXML
+    public Button dd;
+    @FXML
+    public Button de;
+    @FXML
+    public Button ea;
+    @FXML
+    public Button eb;
+    @FXML
+    public Button ec;
+    @FXML
+    public Button ed;
+    @FXML
+    public Button ee;
     boolean didTheyTry;
     boolean hintNumberZero;
 
@@ -74,10 +101,17 @@ public class GameController {
         for (Button b : button) {
             b.setText(GlobalVar.word[count].getText());
             // YOU MAY WANNA MAKE THESE COLORS PRETTIER
-            if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BLUE) b.setStyle("-fx-background-color: blue");
-            if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_RED) b.setStyle("-fx-background-color: red");
-            if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BOMB) b.setStyle("-fx-background-color: black");
-            if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_NEUTRAL) b.setStyle("-fx-background-color: grey");
+            if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BLUE) b.setStyle("-fx-background-color: #00BFFF;" +
+              "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
+            else if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_RED) b.setStyle("-fx-background-color: red;" +
+              "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
+            else if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BOMB) b.setStyle("-fx-text-fill: #FFFFF0;" +
+              "-fx-background-color: black;" +
+              "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
+            else if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_NEUTRAL) b.setStyle("-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px;" +
+              "-fx-background-color: #00FF7F;");
+            else b.setStyle("-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px;" +
+              "-fx-background-color: #F5F5F5;");
             count++;
         }
         hintNumberZero = GlobalVar.hintNumber == 0;
@@ -103,7 +137,8 @@ public class GameController {
         Button [] button = new Button[] {aa, ab, ac, ad, ae, ba, bb, bc, bd, be, ca, cb, cc, cd, ce, da, db, dc, dd, de, ea, eb, ec, ed, ee};
         didTheyTry = true;
         if (GlobalVar.word[i].getType() == GlobalVar.WordType.RED) {
-            button[i].setStyle("-fx-background-color: red");
+            button[i].setStyle("-fx-background-color: red;" +
+              "-fx-font-size: " + min(23, 160 / GlobalVar.word[i].getText().length()) + "px");
             GlobalVar.redLeft--;
             if (GlobalVar.redLeft == 0) {
                 showAlert("Red wins!");
@@ -123,7 +158,8 @@ public class GameController {
             }
         }
         else if (GlobalVar.word[i].getType() == GlobalVar.WordType.BLUE) {
-            button[i].setStyle("-fx-background-color: blue");
+            button[i].setStyle("-fx-background-color: #00BFFF;" +
+              "-fx-font-size: " + min(23, 160 / GlobalVar.word[i].getText().length()) + "px");
             GlobalVar.blueLeft--;
             redScore.setText(String.valueOf(GlobalVar.redTotal - GlobalVar.redLeft));
             blueScore.setText(String.valueOf(GlobalVar.blueTotal - GlobalVar.blueLeft));
@@ -143,13 +179,16 @@ public class GameController {
             }
         }
         else if (GlobalVar.word[i].getType() == GlobalVar.WordType.BOMB) {
-            button[i].setStyle("-fx-background-color: black");
+            button[i].setStyle("-fx-text-fill: #FFFFF0;" +
+              "-fx-background-color: black;" +
+              "-fx-font-size: " + min(23, 160 / GlobalVar.word[i].getText().length()) + "px");
             GlobalVar.word[i].setType(GlobalVar.WordType.GUESSED_BOMB);
             showAlert("Uh-oh... That was a bomb. You lose.");
             System.exit(69); // END SCREEN?
         }
         else if (GlobalVar.word[i].getType() == GlobalVar.WordType.NEUTRAL) {
-            button[i].setStyle("-fx-background-color: grey");
+            button[i].setStyle("-fx-font-size: " + min(23, 160 / GlobalVar.word[i].getText().length()) + "px;" +
+              "-fx-background-color: #00FF7F");
             GlobalVar.word[i].setType(GlobalVar.WordType.GUESSED_NEUTRAL);
             showAlert("You clicked a neutral word. It's your opponent's turn.");
             toLoadingScreen(e);

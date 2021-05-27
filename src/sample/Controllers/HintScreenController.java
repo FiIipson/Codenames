@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+import static java.lang.Math.min;
+
 enum HintErrorCode {
     MORE_THAN_ONE_WORD, EMPTY_HINT, NOT_A_WORD, NOT_A_NUMBER, NOT_A_VALID_NUMBER, WORD_FROM_THE_BOARD, ALL_GOOD
 }
@@ -60,31 +62,56 @@ public class HintScreenController {
     Text blueScore;
     @FXML
     Text redScore;
-    @FXML public Button aa;
-    @FXML public Button ab;
-    @FXML public Button ac;
-    @FXML public Button ad;
-    @FXML public Button ae;
-    @FXML public Button ba;
-    @FXML public Button bb;
-    @FXML public Button bc;
-    @FXML public Button bd;
-    @FXML public Button be;
-    @FXML public Button ca;
-    @FXML public Button cb;
-    @FXML public Button cc;
-    @FXML public Button cd;
-    @FXML public Button ce;
-    @FXML public Button da;
-    @FXML public Button db;
-    @FXML public Button dc;
-    @FXML public Button dd;
-    @FXML public Button de;
-    @FXML public Button ea;
-    @FXML public Button eb;
-    @FXML public Button ec;
-    @FXML public Button ed;
-    @FXML public Button ee;
+    @FXML
+    public Button aa;
+    @FXML
+    public Button ab;
+    @FXML
+    public Button ac;
+    @FXML
+    public Button ad;
+    @FXML
+    public Button ae;
+    @FXML
+    public Button ba;
+    @FXML
+    public Button bb;
+    @FXML
+    public Button bc;
+    @FXML
+    public Button bd;
+    @FXML
+    public Button be;
+    @FXML
+    public Button ca;
+    @FXML
+    public Button cb;
+    @FXML
+    public Button cc;
+    @FXML
+    public Button cd;
+    @FXML
+    public Button ce;
+    @FXML
+    public Button da;
+    @FXML
+    public Button db;
+    @FXML
+    public Button dc;
+    @FXML
+    public Button dd;
+    @FXML
+    public Button de;
+    @FXML
+    public Button ea;
+    @FXML
+    public Button eb;
+    @FXML
+    public Button ec;
+    @FXML
+    public Button ed;
+    @FXML
+    public Button ee;
 
     @FXML
     public void initialize() {
@@ -100,11 +127,18 @@ public class HintScreenController {
         for (Button b : button) {
             b.setText(GlobalVar.word[count].getText());
             // YOU MAY WANNA MAKE THESE COLORS PRETTIER
-            if (GlobalVar.word[count].getType() == GlobalVar.WordType.BLUE) b.setStyle("-fx-background-color: blue");
-            if (GlobalVar.word[count].getType() == GlobalVar.WordType.RED) b.setStyle("-fx-background-color: red");
-            if (GlobalVar.word[count].getType() == GlobalVar.WordType.BOMB) b.setStyle("-fx-background-color: black");
-            if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_RED || GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BLUE ||
-                    GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_NEUTRAL || GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BOMB) b.setStyle("-fx-background-color: green");
+            if (GlobalVar.word[count].getType() == GlobalVar.WordType.BLUE) b.setStyle("-fx-background-color: #00BFFF;" +
+              "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
+            else if (GlobalVar.word[count].getType() == GlobalVar.WordType.RED) b.setStyle("-fx-background-color: red;" +
+              "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
+            else if (GlobalVar.word[count].getType() == GlobalVar.WordType.BOMB) b.setStyle("-fx-text-fill: #FFFFF0;" +
+              "-fx-background-color: black;" +
+              "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
+            else if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_RED || GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BLUE ||
+                    GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_NEUTRAL || GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BOMB) b.setStyle("-fx-background-color: #00FF7F;" +
+              "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
+            else b.setStyle("-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px;" +
+              "-fx-background-color: #F5F5F5;");
             count++;
         }
     }
