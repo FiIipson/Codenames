@@ -22,4 +22,9 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
+   <Text fx:id="to_be_shown" layoutX="515.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" AnchorPane.bottomAnchor="376.6400032043457" AnchorPane.topAnchor="302.8400001525879">
+      <font>
+         <Font name="Purisa Bold" size="43.0" />
+      </font>
+   </Text>
 </AnchorPane>
