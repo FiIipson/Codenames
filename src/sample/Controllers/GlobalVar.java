@@ -3,6 +3,10 @@ package sample.Controllers;
 import java.util.Random;
 
 public class GlobalVar {
+    // RESULT SHOWN AT THE END GAME SCREEN
+    static public Result result_;
+    // RESULT SHOWN AT THE END GAME SCREEN
+
     // SETTINGS
     static public int difficulty = 1;
     static public int timeLimit = 90;
@@ -36,6 +40,11 @@ public class GlobalVar {
     // ALL WORDS
     enum WordType {
         BLUE, RED, NEUTRAL, BOMB, GUESSED_RED, GUESSED_BLUE, GUESSED_NEUTRAL, GUESSED_BOMB
+    }
+
+    // ALL POSSIBLE RESULTS
+    enum Result {
+        BLUE, RED, BLUE_BOM, RED_BOMB;
     }
 
     public static class Word {
@@ -128,6 +137,7 @@ public class GlobalVar {
             }
         }
         //generates types of the words
+        makeNeutral(word);
         setOneType(word, WordType.BOMB, 1);
         setOneType(word, WordType.RED, redTotal);
         setOneType(word, WordType.BLUE, blueTotal);
@@ -140,6 +150,12 @@ public class GlobalVar {
             if (word[r].getType() != WordType.NEUTRAL) continue;
             word[r].setType(type);
             number--;
+        }
+    }
+
+    public static void makeNeutral(Word [] word) {
+        for (Word value : word) {
+            value.setType(WordType.NEUTRAL);
         }
     }
 

@@ -141,8 +141,12 @@ public class GameController {
               "-fx-font-size: " + min(23, 160 / GlobalVar.word[i].getText().length()) + "px");
             GlobalVar.redLeft--;
             if (GlobalVar.redLeft == 0) {
+                GlobalVar.result_ = GlobalVar.Result.RED;
                 showAlert("Red wins!");
-                System.exit(69); // END SCREEN?
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/EndGameScreen.fxml")));
+                stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
             }
             redScore.setText(String.valueOf(GlobalVar.redTotal - GlobalVar.redLeft));
             blueScore.setText(String.valueOf(GlobalVar.blueTotal - GlobalVar.blueLeft));
@@ -165,8 +169,12 @@ public class GameController {
             blueScore.setText(String.valueOf(GlobalVar.blueTotal - GlobalVar.blueLeft));
             GlobalVar.word[i].setType(GlobalVar.WordType.GUESSED_BLUE);
             if (GlobalVar.blueLeft == 0) {
+                GlobalVar.result_ = GlobalVar.Result.BLUE;
                 showAlert("Blue wins!");
-                System.exit(69); // END SCREEN?
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/EndGameScreen.fxml")));
+                stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
             }
             if (!GlobalVar.red) {
                 showAlert("Oops... You clicked a blue word. It's their turn now.");
@@ -179,12 +187,16 @@ public class GameController {
             }
         }
         else if (GlobalVar.word[i].getType() == GlobalVar.WordType.BOMB) {
+            GlobalVar.result_ = GlobalVar.red ? GlobalVar.Result.RED_BOMB : GlobalVar.Result.BLUE_BOM;
             button[i].setStyle("-fx-text-fill: #FFFFF0;" +
               "-fx-background-color: black;" +
               "-fx-font-size: " + min(23, 160 / GlobalVar.word[i].getText().length()) + "px");
             GlobalVar.word[i].setType(GlobalVar.WordType.GUESSED_BOMB);
             showAlert("Uh-oh... That was a bomb. You lose.");
-            System.exit(69); // END SCREEN?
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/EndGameScreen.fxml")));
+            stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
         }
         else if (GlobalVar.word[i].getType() == GlobalVar.WordType.NEUTRAL) {
             button[i].setStyle("-fx-font-size: " + min(23, 160 / GlobalVar.word[i].getText().length()) + "px;" +
