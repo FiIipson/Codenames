@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static java.lang.Math.min;
 
@@ -86,8 +88,33 @@ public class NeutralScreenController {
         for (Button b : button) {
             b.setText(GlobalVar.word[count].getText());
             b.setStyle("-fx-font-size: " + min(23, 160 / GlobalVar.word[count++].getText().length()) + "px;" +
-              "-fx-background-color: #F5F5F5;");
+                    "-fx-background-color: #F5F5F5;");
         }
+
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            int timeLimit = GlobalVar.timeLimit;
+            boolean infinity = timeLimit == 0 || timeLimit == 210;
+            @Override
+            public void run() {
+                if (timeLimit - (60 * (timeLimit / 60)) < 10) {
+                    time.setText(timeLimit / 60 + ":0" + (timeLimit - (60 * (timeLimit / 60))));
+                } else {
+                    time.setText(timeLimit / 60 + ":" + (timeLimit - (60 * (timeLimit / 60))));
+                }
+                if (infinity) {
+                    time.setText("∞");
+                    timer.cancel();
+                    timer.purge();
+                }
+                timeLimit--;
+                if (timeLimit == -1) {
+                    timer.cancel();
+                    timer.purge();
+                }
+            }
+        };
+        timer.schedule(task, 0, 100);
     }
 
     @FXML

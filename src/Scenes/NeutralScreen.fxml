@@ -140,7 +140,7 @@
                     </font></Button>
             </children>
         </GridPane>
-      <Ellipse fill="#1fffc6" layoutX="987.0" layoutY="335.0" radiusX="131.0" radiusY="95.0" stroke="BLACK" strokeType="INSIDE" />
+        <Ellipse fill="#1fffc6" layoutX="987.0" layoutY="335.0" radiusX="131.0" radiusY="95.0" stroke="BLACK" strokeType="INSIDE" />
         <Text fill="#ededed" layoutX="905.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score" textAlignment="CENTER" wrappingWidth="168.0">
             <font>
                 <Font name="Purisa Bold" size="48.0" />
@@ -168,7 +168,7 @@
             </font>
         </Text>
     </children>
-   <cursor>
-      <Cursor fx:constant="DEFAULT" />
-   </cursor>
+    <cursor>
+        <Cursor fx:constant="DEFAULT" />
+    </cursor>
 </AnchorPane>

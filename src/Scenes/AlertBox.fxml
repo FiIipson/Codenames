@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="200.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AlertBoxController">
    <children>
-      <Button fx:id="closeButton" layoutX="268.0" layoutY="141.0" mnemonicParsing="false" onAction="#closeButton" text="Close" AnchorPane.topAnchor="141.0">
+      <Button fx:id="closeButton" layoutX="263.0" layoutY="141.0" mnemonicParsing="false" onAction="#closeButton" text="Close">
          <font>
             <Font name="Purisa Bold" size="17.0" />
          </font>
@@ -16,7 +16,7 @@
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Button>
-      <Text fx:id="errorMessage" layoutX="108.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="384.93359375">
+      <Text fx:id="errorMessage" layoutX="108.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="384.93359375">
          <font>
             <Font name="Purisa Bold" size="18.0" />
          </font>

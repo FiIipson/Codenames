@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static java.lang.Math.min;
 
@@ -119,6 +121,31 @@ public class GameController {
             showAlert("Your leader gave you a hint with number 0. According to the rules" +
                     " you are allowed to guess as many words as you want (at least one).");
         }
+
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            int timeLimit = GlobalVar.timeLimit;
+            boolean infinity = timeLimit == 0 || timeLimit == 210;
+            @Override
+            public void run() {
+                if (timeLimit - (60 * (timeLimit / 60)) < 10) {
+                    time.setText(timeLimit / 60 + ":0" + (timeLimit - (60 * (timeLimit / 60))));
+                } else {
+                    time.setText(timeLimit / 60 + ":" + (timeLimit - (60 * (timeLimit / 60))));
+                }
+                if (infinity) {
+                    time.setText("∞");
+                    timer.cancel();
+                    timer.purge();
+                }
+                timeLimit--;
+                if (timeLimit == -1) {
+                    timer.cancel();
+                    timer.purge();
+                }
+            }
+        };
+        timer.schedule(task, 0, 100);
     }
 
     @FXML
@@ -147,6 +174,7 @@ public class GameController {
                 stage = (Stage)((Node)e.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.show();
+                return;
             }
             redScore.setText(String.valueOf(GlobalVar.redTotal - GlobalVar.redLeft));
             blueScore.setText(String.valueOf(GlobalVar.blueTotal - GlobalVar.blueLeft));
@@ -175,6 +203,7 @@ public class GameController {
                 stage = (Stage)((Node)e.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.show();
+                return;
             }
             if (!GlobalVar.red) {
                 showAlert("Oops... You clicked a blue word. It's their turn now.");
