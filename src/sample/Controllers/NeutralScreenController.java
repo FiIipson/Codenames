@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,8 +23,6 @@ public class NeutralScreenController {
     Parent root;
     @FXML
     Stage stage;
-    @FXML
-    Text time;
     @FXML
     public Button aa;
     @FXML
@@ -77,12 +76,6 @@ public class NeutralScreenController {
 
     @FXML
     public void initialize() {
-        int timeLimit = GlobalVar.timeLimit;
-        int seconds = GlobalVar.seconds;
-        if (timeLimit == 0 || timeLimit == 210) time.setText("∞");
-        else {
-            time.setText(timeLimit / 60 + ":" + seconds + "0");
-        }
         Button[] button = new Button[] {aa, ab, ac, ad, ae, ba, bb, bc, bd, be, ca, cb, cc, cd, ce, da, db, dc, dd, de, ea, eb, ec, ed, ee};
         int count = 0;
         for (Button b : button) {
@@ -90,31 +83,8 @@ public class NeutralScreenController {
             b.setStyle("-fx-font-size: " + min(23, 160 / GlobalVar.word[count++].getText().length()) + "px;" +
                     "-fx-background-color: #F5F5F5;");
         }
-
-        Timer timer = new Timer();
-        TimerTask task = new TimerTask() {
-            int timeLimit = GlobalVar.timeLimit;
-            boolean infinity = timeLimit == 0 || timeLimit == 210;
-            @Override
-            public void run() {
-                if (timeLimit - (60 * (timeLimit / 60)) < 10) {
-                    time.setText(timeLimit / 60 + ":0" + (timeLimit - (60 * (timeLimit / 60))));
-                } else {
-                    time.setText(timeLimit / 60 + ":" + (timeLimit - (60 * (timeLimit / 60))));
-                }
-                if (infinity) {
-                    time.setText("∞");
-                    timer.cancel();
-                    timer.purge();
-                }
-                timeLimit--;
-                if (timeLimit == -1) {
-                    timer.cancel();
-                    timer.purge();
-                }
-            }
-        };
-        timer.schedule(task, 0, 100);
+        GlobalVar.redLeft = GlobalVar.redTotal;
+        GlobalVar.blueLeft = GlobalVar.blueTotal;
     }
 
     @FXML
@@ -124,5 +94,4 @@ public class NeutralScreenController {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
 }

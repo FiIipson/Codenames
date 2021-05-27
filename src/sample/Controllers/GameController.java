@@ -83,8 +83,11 @@ public class GameController {
     public Button ed;
     @FXML
     public Button ee;
+
     boolean didTheyTry;
     boolean hintNumberZero;
+    public static int _timeLimit = GlobalVar.timeLimit;
+    static Timer timer;
 
     @FXML
     public void initialize() throws IOException {
@@ -117,35 +120,39 @@ public class GameController {
             count++;
         }
         hintNumberZero = GlobalVar.hintNumber == 0;
-        if (hintNumberZero) {
+        if (hintNumberZero && GlobalVar.hintString != "No hint") {
             showAlert("Your leader gave you a hint with number 0. According to the rules" +
                     " you are allowed to guess as many words as you want (at least one).");
         }
+        if (GlobalVar.hintString == "No hint") {
+            showAlert("Your leader gave you no hint. You're on your own now ;(");
+        }
 
-        Timer timer = new Timer();
+        timer = new Timer();
+        _timeLimit = GlobalVar.timeLimit;
         TimerTask task = new TimerTask() {
-            int timeLimit = GlobalVar.timeLimit;
-            boolean infinity = timeLimit == 0 || timeLimit == 210;
+            final boolean infinity = _timeLimit == 0 || _timeLimit == 210;
             @Override
             public void run() {
-                if (timeLimit - (60 * (timeLimit / 60)) < 10) {
-                    time.setText(timeLimit / 60 + ":0" + (timeLimit - (60 * (timeLimit / 60))));
+                if (_timeLimit - (60 * (_timeLimit / 60)) < 10) {
+                    time.setText(_timeLimit / 60 + ":0" + (_timeLimit - (60 * (_timeLimit / 60))));
                 } else {
-                    time.setText(timeLimit / 60 + ":" + (timeLimit - (60 * (timeLimit / 60))));
+                    time.setText(_timeLimit / 60 + ":" + (_timeLimit - (60 * (_timeLimit / 60))));
                 }
                 if (infinity) {
                     time.setText("∞");
                     timer.cancel();
                     timer.purge();
+                } else {
+                    _timeLimit--;
                 }
-                timeLimit--;
-                if (timeLimit == -1) {
+                if (_timeLimit < 0) {
                     timer.cancel();
                     timer.purge();
                 }
             }
         };
-        timer.schedule(task, 0, 100);
+        timer.schedule(task, 0, 1000);
     }
 
     @FXML
@@ -154,6 +161,9 @@ public class GameController {
             showAlert("You must try to guess at least one word.");
             return;
         }
+        timer.cancel();
+        timer.purge();
+
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/ChangeScreen.fxml")));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
@@ -161,6 +171,14 @@ public class GameController {
     }
 
     public void clickedButton(ActionEvent e, int i) throws IOException {
+        if (_timeLimit < 0) {
+            showAlert("Your time's up!");
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/ChangeScreen.fxml")));
+            stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+            return;
+        }
         Button [] button = new Button[] {aa, ab, ac, ad, ae, ba, bb, bc, bd, be, ca, cb, cc, cd, ce, da, db, dc, dd, de, ea, eb, ec, ed, ee};
         didTheyTry = true;
         if (GlobalVar.word[i].getType() == GlobalVar.WordType.RED) {
@@ -168,6 +186,9 @@ public class GameController {
               "-fx-font-size: " + min(23, 160 / GlobalVar.word[i].getText().length()) + "px");
             GlobalVar.redLeft--;
             if (GlobalVar.redLeft == 0) {
+                timer.cancel();
+                timer.purge();
+
                 GlobalVar.result_ = GlobalVar.Result.RED;
                 showAlert("Red wins!");
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/EndGameScreen.fxml")));
@@ -197,6 +218,9 @@ public class GameController {
             blueScore.setText(String.valueOf(GlobalVar.blueTotal - GlobalVar.blueLeft));
             GlobalVar.word[i].setType(GlobalVar.WordType.GUESSED_BLUE);
             if (GlobalVar.blueLeft == 0) {
+                timer.cancel();
+                timer.purge();
+
                 GlobalVar.result_ = GlobalVar.Result.BLUE;
                 showAlert("Blue wins!");
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/EndGameScreen.fxml")));
@@ -216,6 +240,9 @@ public class GameController {
             }
         }
         else if (GlobalVar.word[i].getType() == GlobalVar.WordType.BOMB) {
+            timer.cancel();
+            timer.purge();
+
             GlobalVar.result_ = GlobalVar.red ? GlobalVar.Result.RED_BOMB : GlobalVar.Result.BLUE_BOM;
             button[i].setStyle("-fx-text-fill: #FFFFF0;" +
               "-fx-background-color: black;" +

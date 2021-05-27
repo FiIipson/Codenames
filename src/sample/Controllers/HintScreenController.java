@@ -20,11 +20,12 @@ import java.util.TimerTask;
 import static java.lang.Math.min;
 
 enum HintErrorCode {
-    MORE_THAN_ONE_WORD, EMPTY_HINT, NOT_A_WORD, NOT_A_NUMBER, NOT_A_VALID_NUMBER, WORD_FROM_THE_BOARD, ALL_GOOD
+    MORE_THAN_ONE_WORD, EMPTY_HINT, NOT_A_WORD, NOT_A_NUMBER, NOT_A_VALID_NUMBER, WORD_FROM_THE_BOARD, ALL_GOOD, NO_TIME
 }
 
 public class HintScreenController {
     public HintErrorCode validate(String word, String number) {
+        if (_timeLimit < 0) return HintErrorCode.NO_TIME;
         if (word.contains(" ")) return HintErrorCode.MORE_THAN_ONE_WORD;
         if (word.equals("")) return HintErrorCode.EMPTY_HINT;
         if (!word.matches("^([a-zA-Z])*$")) return HintErrorCode.NOT_A_WORD;
@@ -49,6 +50,7 @@ public class HintScreenController {
         if (err == HintErrorCode.NOT_A_NUMBER) return "Please enter a valid number.";
         if (err == HintErrorCode.NOT_A_VALID_NUMBER) return "The number is too big.";
         if (err == HintErrorCode.WORD_FROM_THE_BOARD) return "You cannot use one of the words from the board.";
+        if (err == HintErrorCode.NO_TIME) return "Your time's up!";
         return "Everything seems to be fine. This shouldn't have happened.";
     }
 
@@ -115,12 +117,12 @@ public class HintScreenController {
     @FXML
     public Button ee;
 
+    public static int _timeLimit = GlobalVar.timeLimit;
+    public boolean infinity = GlobalVar.timeLimit == 0 || GlobalVar.timeLimit == 210;
+    static Timer timer;
+
     @FXML
     public void initialize() {
-        int time_limit = GlobalVar.timeLimit;
-        int seconds = GlobalVar.seconds;
-        if (time_limit == 0 || time_limit == 210) time.setText("∞");
-        else time.setText(time_limit / 60 + ":" + seconds + "0");
         redScore.setText(String.valueOf(GlobalVar.redTotal - GlobalVar.redLeft));
         blueScore.setText(String.valueOf(GlobalVar.blueTotal - GlobalVar.blueLeft));
 
@@ -144,36 +146,56 @@ public class HintScreenController {
             count++;
         }
 
-        Timer timer = new Timer();
+        timer = new Timer();
+        _timeLimit = GlobalVar.timeLimit;
         TimerTask task = new TimerTask() {
-            int timeLimit = GlobalVar.timeLimit;
-            boolean infinity = timeLimit == 0 || timeLimit == 210;
             @Override
             public void run() {
-                if (timeLimit - (60 * (timeLimit / 60)) < 10) {
-                    time.setText(timeLimit / 60 + ":0" + (timeLimit - (60 * (timeLimit / 60))));
+                if (_timeLimit - (60 * (_timeLimit / 60)) < 10) {
+                    time.setText(_timeLimit / 60 + ":0" + (_timeLimit - (60 * (_timeLimit / 60))));
                 } else {
-                    time.setText(timeLimit / 60 + ":" + (timeLimit - (60 * (timeLimit / 60))));
+                    time.setText(_timeLimit / 60 + ":" + (_timeLimit - (60 * (_timeLimit / 60))));
                 }
                 if (infinity) {
                     time.setText("∞");
                     timer.cancel();
                     timer.purge();
+                } else {
+                    _timeLimit--;
                 }
-                timeLimit--;
-                if (timeLimit == -1) {
+                if (_timeLimit < 0) {
                     timer.cancel();
                     timer.purge();
                 }
             }
         };
-        timer.schedule(task, 0, 100);
+        timer.schedule(task, 0, 1000);
     }
 
     @FXML
     public void toLoadingScreen(ActionEvent e) throws IOException {
         HintErrorCode err = validate(HintWordLeader.getText(), HintNumberLeader.getText());
-        if (err == HintErrorCode.ALL_GOOD) {
+        if (err == HintErrorCode.NO_TIME) {
+            GlobalVar.currentError = hintErrorMessage(err);
+            Stage alertBox = new Stage();
+            alertBox.initModality(Modality.APPLICATION_MODAL);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scenes/AlertBox.fxml"));
+            root = loader.load();
+            alertBox.setScene(new Scene(root));
+            alertBox.setTitle("An error has occurred");
+            alertBox.showAndWait();
+        }
+        if (err == HintErrorCode.NO_TIME) {
+            GlobalVar.hintString = "No hint";
+            GlobalVar.hintNumber = 0;
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/ChangeScreen.fxml")));
+            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } else if (err == HintErrorCode.ALL_GOOD) {
+            timer.cancel();
+            timer.purge();
+
             GlobalVar.hintString = HintWordLeader.getText();
             GlobalVar.hintNumber = Integer.parseInt(HintNumberLeader.getText());
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/ChangeScreen.fxml")));

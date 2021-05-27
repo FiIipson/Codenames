@@ -6,10 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -24,15 +24,19 @@ public class EndGameController {
   public void initialize() {
     if (GlobalVar.result_ == GlobalVar.Result.BLUE) {
       to_be_shown.setText(blue_win);
+      to_be_shown.setFill(Color.BLUE);
     }
     else if (GlobalVar.result_ == GlobalVar.Result.RED) {
       to_be_shown.setText(red_win);
+      to_be_shown.setFill(Color.RED);
     }
     else if (GlobalVar.result_ == GlobalVar.Result.RED_BOMB) {
       to_be_shown.setText(blue_bomb);
+      to_be_shown.setFill(Color.BLUE);
     }
     else {
       to_be_shown.setText(red_bomb);
+      to_be_shown.setFill(Color.RED);
     }
   }
   @FXML
