@@ -43,6 +43,13 @@ public class MenuController {
     stage.show();
   }
   @FXML
+  public void playOnline(ActionEvent e) throws IOException {
+    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/PlayOnline.fxml")));
+    stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+    stage.setScene(new Scene(root));
+    stage.show();
+  }
+  @FXML
   public void howToPlay(ActionEvent e) throws IOException {
     root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/HowToPlay/HowToPlay1.fxml")));
     stage = (Stage)((Node)e.getSource()).getScene().getWindow();

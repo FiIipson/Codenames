@@ -31,12 +31,17 @@
                 <Font name="Purisa Oblique" size="57.0" />
             </font>
         </Text>
-      <Button layoutX="491.0" layoutY="367.0" mnemonicParsing="false" onAction="#howToPlay" prefHeight="100.0" prefWidth="167.0" stylesheets="@../Buttons/exit_button.css" text="HOW TO&#10;PLAY" textAlignment="CENTER" textFill="#fff9f9">
+      <Button layoutX="492.0" layoutY="451.0" mnemonicParsing="false" onAction="#howToPlay" prefHeight="100.0" prefWidth="167.0" stylesheets="@../Buttons/exit_button.css" text="HOW TO&#10;PLAY" textAlignment="CENTER" textFill="#fff9f9">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="492.0" layoutY="518.0" mnemonicParsing="false" onAction="#credits" prefHeight="100.0" prefWidth="167.0" stylesheets="@../Buttons/exit_button.css" text="CREDITS" textAlignment="CENTER" textFill="#fff9f9">
+      <Button layoutX="491.0" layoutY="572.0" mnemonicParsing="false" onAction="#credits" prefHeight="100.0" prefWidth="167.0" stylesheets="@../Buttons/exit_button.css" text="CREDITS" textAlignment="CENTER" textFill="#fff9f9">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="491.0" layoutY="334.0" mnemonicParsing="false" onAction="#playOnline" prefHeight="100.0" prefWidth="167.0" stylesheets="@../Buttons/exit_button.css" text="PLAY&#10;ONLINE&#10;" textAlignment="CENTER" textFill="#fff9f9">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
