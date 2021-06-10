@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -24,7 +25,7 @@ public class GameSettingsController {
     @FXML
     public Text id_difficulty;
     @FXML
-    public void initialize() {
+    public void initialize() throws FileNotFoundException {
         id_time_limit.setText(GlobalVar.timeLimit / 60 + ":" + GlobalVar.seconds + "0");
         id_hints.setText(GlobalVar.hints ? "On" : "Off");
         if (GlobalVar.difficulty == 0) {
@@ -34,6 +35,7 @@ public class GameSettingsController {
         } else {
           id_difficulty.setText("Hard");
         }
+        GlobalVar.AllWords = GlobalVar.loadWords();
     }
     @FXML
     protected void onHints() {
@@ -56,6 +58,7 @@ public class GameSettingsController {
         else GlobalVar.timeLimit += 30;
         GlobalVar.seconds = GlobalVar.timeLimit % 60 / 10;
         id_time_limit.setText(GlobalVar.timeLimit / 60 + ":" + GlobalVar.seconds + "0");
+        GlobalVar.timeLimit2 = GlobalVar.timeLimit;
     }
     @FXML
     protected void upDifficulty() {

@@ -120,11 +120,11 @@ public class GameController {
             count++;
         }
         hintNumberZero = GlobalVar.hintNumber == 0;
-        if (hintNumberZero && GlobalVar.hintString != "No hint") {
+        if (hintNumberZero && !GlobalVar.hintString.equals("No hint")) {
             showAlert("Your leader gave you a hint with number 0. According to the rules" +
                     " you are allowed to guess as many words as you want (at least one).");
         }
-        if (GlobalVar.hintString == "No hint") {
+        if (GlobalVar.hintString.equals("No hint")) {
             showAlert("Your leader gave you no hint. You're on your own now ;(");
         }
 

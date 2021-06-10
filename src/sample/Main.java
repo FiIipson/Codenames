@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+
 import java.util.Objects;
+
 
 public class Main extends Application {
     @Override
@@ -35,8 +37,9 @@ public class Main extends Application {
 
         alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
 
-        if (alert.showAndWait().get() == buttonTypeYes) {
+        if (alert.showAndWait().orElse(null) == buttonTypeYes) {
             stage.close();
+            System.exit(0);
         }
     }
 

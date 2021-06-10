@@ -1,6 +1,10 @@
 package sample.Controllers;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class GlobalVar {
     // RESULT SHOWN AT THE END GAME SCREEN
@@ -10,9 +14,11 @@ public class GlobalVar {
     // SETTINGS
     static public int difficulty = 1;
     static public int timeLimit = 90;
+    static public int timeLimit2 = 90;
     static public boolean hints = false;
     static public int seconds = 3;
     static public int boardSize = 25;
+    static public int DICTIONARY_SIZE = 466550;
     // SETTINGS
 
     public static int MAX_NAME_LENGTH = 25;
@@ -68,71 +74,41 @@ public class GlobalVar {
 
     }
 
-    public static Word[] allWords = new Word[] {
-            new Word("DENMARK", 0),
-            new Word("EUROPE", 0),
-            new Word("GAME", 0),
-            new Word("QUEEN", 0),
-            new Word("LONDON", 0),
-            new Word("BRIDGE", 0),
-            new Word("SCIENTIST", 0),
-            new Word("SKY", 0),
-            new Word("NIGHT", 0),
-            new Word("FENCE", 0),
-            new Word("VEHICLE", 0),
-            new Word("POLICE", 0),
-            new Word("MIDNIGHT", 0),
-            new Word("SHARK", 0),
-            new Word("STADIUM", 0),
-            new Word("PLATE", 0),
-            new Word("AMBULANCE", 1),
-            new Word("COURT", 1),
-            new Word("WOODPECKER", 1),
-            new Word("EGYPT", 1),
-            new Word("SEAL", 1),
-            new Word("GIANT", 1),
-            new Word("GREECE", 1),
-            new Word("THUMB", 1),
-            new Word("MICROSCOPE", 1),
-            new Word("MODEL", 1),
-            new Word("DEN", 1),
-            new Word("TAIL", 1),
-            new Word("OLYMPUS", 1),
-            new Word("RING", 1),
-            new Word("FRAME", 1),
-            new Word("POLE", 1),
-            new Word("SHAKESPEARE", 1),
-            new Word("TIME", 2),
-            new Word("BOWL", 2),
-            new Word("POUND", 2),
-            new Word("DUTCHMAN", 2),
-            new Word("HUMOUR", 2),
-            new Word("HOOD", 2),
-            new Word("BRANCH", 2),
-            new Word("CIRCLE", 2),
-            new Word("DOT", 2),
-            new Word("MAX", 2),
-            new Word("DIVER", 2),
-            new Word("BEDROCK", 2),
-            new Word("PIPE", 2),
-            new Word("CHAIR", 2),
-            new Word("DEATH", 2),
-            new Word("DRONE", 2),
-            new Word("INK", 2)
-    };
+    public static ArrayList<Word> AllWords = new ArrayList<>();
+    public static String[] Dictionary = new String[DICTIONARY_SIZE];
+
+    public static ArrayList<Word> loadWords() throws FileNotFoundException {
+        File file = new File("src/sample/Controllers/words.txt");
+        Scanner sc = new Scanner(file);
+        String s;
+        String[] t;
+        while (sc.hasNextLine()) {
+            s = sc.nextLine();
+            t = s.split("\t");
+            AllWords.add(new Word(t[0], Integer.parseInt(t[1])));
+        }
+        return AllWords;
+    }
+
+    public static void loadDictionary() throws FileNotFoundException {
+        File file = new File("src/sample/Controllers/dictionary.txt");
+        Scanner sc = new Scanner(file);
+        int count = 0;
+        while (sc.hasNextLine()) Dictionary[count++] = sc.nextLine();
+    }
 
     public static Word[] word = new Word[boardSize];
 
     public static void setWords(int difficulty) {
-        boolean[] used = new boolean[allWords.length];
+        boolean[] used = new boolean[AllWords.size()];
         int written = 0;
         Random rand = new Random();
         //generates the words
         while (written < boardSize) {
-            int r = rand.nextInt(allWords.length);
+            int r = rand.nextInt(AllWords.size());
             if (!used[r]) {
-                if (difficulty - allWords[r].difficulty == 2 || difficulty - allWords[r].difficulty == -2) continue;
-                word[written++] = allWords[r];
+                if (difficulty - AllWords.get(r).difficulty == 2 || difficulty - AllWords.get(r).difficulty == -2) continue;
+                word[written++] = AllWords.get(r);
                 used[r] = true;
             }
         }

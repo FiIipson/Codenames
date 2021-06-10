@@ -13,6 +13,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Dictionary;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -28,7 +29,6 @@ public class HintScreenController {
         if (_timeLimit < 0) return HintErrorCode.NO_TIME;
         if (word.contains(" ")) return HintErrorCode.MORE_THAN_ONE_WORD;
         if (word.equals("")) return HintErrorCode.EMPTY_HINT;
-        if (!word.matches("^([a-zA-Z])*$")) return HintErrorCode.NOT_A_WORD;
         if (!number.matches("^[0-9]*$")) return HintErrorCode.NOT_A_NUMBER;
         if (Integer.parseInt(number) < 0) return HintErrorCode.NOT_A_NUMBER;
         else {
@@ -40,13 +40,27 @@ public class HintScreenController {
                     (w.getType() == GlobalVar.WordType.RED || w.getType() == GlobalVar.WordType.BLUE ||
                             w.getType() == GlobalVar.WordType.BOMB || w.getType() == GlobalVar.WordType.NEUTRAL)) return HintErrorCode.WORD_FROM_THE_BOARD;
         }
+        if (!findWord(word)) return HintErrorCode.NOT_A_WORD;
         return HintErrorCode.ALL_GOOD;
+    }
+
+    boolean findWord(String word) {
+        int L = 0;
+        int P = GlobalVar.DICTIONARY_SIZE - 1;
+        int M;
+        while (L <= P) {
+            M = (L + P)/2;
+            if (GlobalVar.Dictionary[M].compareToIgnoreCase(word) < 0) L = M + 1;
+            else if (GlobalVar.Dictionary[M].compareToIgnoreCase(word) > 0) P = M - 1;
+            else return true;
+        }
+        return false;
     }
 
     public String hintErrorMessage(HintErrorCode err) {
         if (err == HintErrorCode.MORE_THAN_ONE_WORD) return "Your hint can only be one word.";
         if (err == HintErrorCode.EMPTY_HINT) return "Your must give a hint.";
-        if (err == HintErrorCode.NOT_A_WORD) return "Your hint must be a word.";
+        if (err == HintErrorCode.NOT_A_WORD) return "There's no such word.";
         if (err == HintErrorCode.NOT_A_NUMBER) return "Please enter a valid number.";
         if (err == HintErrorCode.NOT_A_VALID_NUMBER) return "The number is too big.";
         if (err == HintErrorCode.WORD_FROM_THE_BOARD) return "You cannot use one of the words from the board.";
@@ -166,6 +180,7 @@ public class HintScreenController {
                 if (_timeLimit < 0) {
                     timer.cancel();
                     timer.purge();
+
                 }
             }
         };

@@ -11,7 +11,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -75,7 +77,7 @@ public class NeutralScreenController {
     public Button ee;
 
     @FXML
-    public void initialize() {
+    public void initialize() throws FileNotFoundException {
         Button[] button = new Button[] {aa, ab, ac, ad, ae, ba, bb, bc, bd, be, ca, cb, cc, cd, ce, da, db, dc, dd, de, ea, eb, ec, ed, ee};
         int count = 0;
         for (Button b : button) {
@@ -85,6 +87,7 @@ public class NeutralScreenController {
         }
         GlobalVar.redLeft = GlobalVar.redTotal;
         GlobalVar.blueLeft = GlobalVar.blueTotal;
+        GlobalVar.loadDictionary();
     }
 
     @FXML
