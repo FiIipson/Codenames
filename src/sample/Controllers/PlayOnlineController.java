@@ -26,7 +26,7 @@ public class PlayOnlineController {
     }
     @FXML
     protected void create(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/NewPlayerHost.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/CreateGameSettings.fxml")));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
