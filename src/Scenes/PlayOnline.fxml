@@ -23,7 +23,7 @@
                 <Font name="Purisa Oblique" size="57.0" />
             </font>
         </Text>
-        <Button layoutX="492.0" layoutY="275.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="167.0" stylesheets="@../Buttons/exit_button.css" text="CREATE &#10;GAME&#10;&#10;" textAlignment="CENTER" textFill="#fff9f9">
+        <Button layoutX="492.0" layoutY="275.0" mnemonicParsing="false" onAction="#create" prefHeight="100.0" prefWidth="167.0" stylesheets="@../Buttons/exit_button.css" text=" CREATE &#10;GAME&#10;&#10;" textAlignment="CENTER" textFill="#fff9f9">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -31,7 +31,7 @@
             <Font size="14.0" />
          </font>
         </Button>
-      <Button layoutX="492.0" layoutY="416.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="167.0" stylesheets="@../Buttons/exit_button.css" text="JOIN&#10;GAME" textAlignment="CENTER" textFill="#fff9f9">
+      <Button layoutX="492.0" layoutY="416.0" mnemonicParsing="false" onAction="#join" prefHeight="100.0" prefWidth="167.0" stylesheets="@../Buttons/exit_button.css" text="JOIN&#10;GAME" textAlignment="CENTER" textFill="#fff9f9">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

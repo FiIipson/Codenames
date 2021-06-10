@@ -19,11 +19,21 @@ public class PlayOnlineController {
 
     @FXML
     protected void back(ActionEvent e) throws IOException {
-        GlobalVar.timeLimit = 90;
-        GlobalVar.difficulty = 1;
-        GlobalVar.hints = false;
-        GlobalVar.seconds = 3;
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Menu.fxml")));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML
+    protected void create(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/NewPlayerHost.fxml")));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML
+    protected void join(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/NewPlayerGuest.fxml")));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
