@@ -25,14 +25,14 @@
                 <Font name="Purisa Oblique" size="57.0" />
             </font>
         </Text>
-      <TextField layoutX="472.0" layoutY="299.0" prefHeight="45.0" prefWidth="207.0" promptText="IP Address" style="-fx-font-family: Purisa; -fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); -fx-background-color: #bdf6ff;" />
-      <ChoiceBox layoutX="471.0" layoutY="512.0" prefHeight="24.0" prefWidth="207.0" style="-fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); -fx-background-color: #bdf6ff;" />
+      <TextField fx:id="IPAddress" layoutX="472.0" layoutY="299.0" prefHeight="45.0" prefWidth="207.0" promptText="IP Address" style="-fx-font-family: Purisa; -fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); -fx-background-color: #bdf6ff;" />
+      <ChoiceBox fx:id="your_team" layoutX="471.0" layoutY="512.0" prefHeight="24.0" prefWidth="207.0" style="-fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); -fx-background-color: #bdf6ff;" />
       <Text fill="#07000a" layoutX="454.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert IP Address">
          <font>
             <Font name="Purisa" size="24.0" />
          </font>
       </Text>
-      <TextField layoutX="471.0" layoutY="400.0" prefHeight="45.0" prefWidth="207.0" promptText="Name" style="-fx-font-family: Purisa; -fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); -fx-background-color: #bdf6ff;" />
+      <TextField fx:id="name" layoutX="471.0" layoutY="400.0" prefHeight="45.0" prefWidth="207.0" promptText="Name" style="-fx-font-family: Purisa; -fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); -fx-background-color: #bdf6ff;" />
       <Text fill="#07000a" layoutX="461.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert your name">
          <font>
             <Font name="Purisa" size="24.0" />
