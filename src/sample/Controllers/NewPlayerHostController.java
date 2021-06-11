@@ -68,10 +68,10 @@ public class NewPlayerHostController {
             GlobalVar.serverThread.interrupt();
             return;
         }
-//        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Lobby.fxml")));
-//        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-//        stage.setScene(new Scene(root));
-//        stage.show();
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Lobby.fxml")));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
 
         CreateGameSettingController.setUpBoard = GlobalVar.board;
         GlobalVar.csc = new ClientSideConnection();
@@ -99,19 +99,19 @@ public class NewPlayerHostController {
                         }
                     }
                 }
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Lobby.fxml")));
-                        } catch (IOException ioException) {
-                            ioException.printStackTrace();
-                        }
-                        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-                        stage.setScene(new Scene(root));
-                        stage.show();
-                    }
-                });
+//                Platform.runLater(new Runnable() {
+//                    @Override
+//                    public void run() {
+////                        try {
+////                            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Lobby.fxml")));
+////                        } catch (IOException ioException) {
+////                            ioException.printStackTrace();
+////                        }
+////                        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+////                        stage.setScene(new Scene(root));
+////                        stage.show();
+//                    }
+//                });
                 Thread.currentThread().interrupt();
             }
         });

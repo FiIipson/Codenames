@@ -5,6 +5,7 @@ import sample.Server.ClientSideConnection;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -67,7 +68,7 @@ public class GlobalVar {
         BLUE, RED, BLUE_BOM, RED_BOMB
     }
 
-    public static class Word {
+    public static class Word implements Serializable {
         String text;
         int difficulty;
         WordType type;
