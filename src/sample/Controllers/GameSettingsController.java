@@ -27,7 +27,6 @@ public class GameSettingsController {
     @FXML
     public void initialize() throws FileNotFoundException {
         id_time_limit.setText(GlobalVar.timeLimit / 60 + ":" + GlobalVar.seconds + "0");
-        id_hints.setText(GlobalVar.hints ? "On" : "Off");
         if (GlobalVar.difficulty == 0) {
           id_difficulty.setText("Easy");
         } else if (GlobalVar.difficulty == 1) {
@@ -36,16 +35,6 @@ public class GameSettingsController {
           id_difficulty.setText("Hard");
         }
         GlobalVar.AllWords = GlobalVar.loadWords();
-    }
-    @FXML
-    protected void onHints() {
-        GlobalVar.hints = true;
-        id_hints.setText("On");
-    }
-    @FXML
-    protected void offHints() {
-        GlobalVar.hints = false;
-        id_hints.setText("Off");
     }
     @FXML
     protected void addTimeLimit() {
