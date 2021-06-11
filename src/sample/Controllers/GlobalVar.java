@@ -1,5 +1,8 @@
 package sample.Controllers;
 
+import javafx.stage.Stage;
+import sample.Server.ClientSideConnection;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -7,6 +10,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GlobalVar {
+
+    public static Board board;
+    public static String playerName;
+    public static String serverID;
+    public static boolean exit=false;
+    public static boolean serverReady=false;
+    public static Board receivedBoard;
+    public static Thread joinThread;
+    public static Thread serverThread;
+    public static ClientSideConnection csc;
+
     // RESULT SHOWN AT THE END GAME SCREEN
     static public Result result_;
     // RESULT SHOWN AT THE END GAME SCREEN
@@ -74,6 +88,70 @@ public class GlobalVar {
 
     }
 
+    public static class Hint {
+        String text;
+        boolean is_red;
+        int number;
+
+        public Hint(String text, boolean is_red, int number) {
+            this.text = text;
+            this.is_red = is_red;
+            this.number = number;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+
+        public boolean isIs_red() {
+            return is_red;
+        }
+
+        public void setIs_red(boolean is_red) {
+            this.is_red = is_red;
+        }
+
+        public int getNumber() {
+            return number;
+        }
+
+        public void setNumber(int number) {
+            this.number = number;
+        }
+    }
+
+    public static class Player {
+        boolean is_operative;
+        boolean is_red;
+        String name;
+
+        public Player(boolean is_operative, boolean is_red, String name) {
+            this.is_operative = is_operative;
+            this.is_red = is_red;
+            this.name = name;
+        }
+
+        public boolean isIs_operative() {
+            return is_operative;
+        }
+
+        public boolean isIs_red() {
+            return is_red;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
     public static ArrayList<Word> AllWords = new ArrayList<>();
     public static String[] Dictionary = new String[DICTIONARY_SIZE];
 
@@ -136,4 +214,8 @@ public class GlobalVar {
     }
 
     // ALL WORDS
+
+    public static enum moveType {
+        HINTED, PLAYED
+    }
 }

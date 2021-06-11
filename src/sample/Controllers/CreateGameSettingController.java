@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class CreateGameSettingController {
+    public static Board setUpBoard;
     @FXML
     Parent root;
     @FXML

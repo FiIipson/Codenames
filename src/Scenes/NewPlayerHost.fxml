@@ -25,8 +25,8 @@
                 <Font name="Purisa Oblique" size="57.0" />
             </font>
         </Text>
-        <ChoiceBox layoutX="471.0" layoutY="449.0" prefHeight="24.0" prefWidth="207.0" style="-fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); -fx-background-color: #bdf6ff;" />
-        <TextField layoutX="471.0" layoutY="324.0" prefHeight="45.0" prefWidth="207.0" promptText="Name" style="-fx-font-family: Purisa; -fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); -fx-background-color: #bdf6ff;" />
+        <ChoiceBox fx:id="your_team" layoutX="471.0" layoutY="449.0" prefHeight="24.0" prefWidth="207.0" style="-fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); -fx-background-color: #bdf6ff;" />
+        <TextField fx:id="name" layoutX="471.0" layoutY="324.0" prefHeight="45.0" prefWidth="207.0" promptText="Name" style="-fx-font-family: Purisa; -fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); -fx-background-color: #bdf6ff;" />
         <Text fill="#07000a" layoutX="460.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert your name">
             <font>
                 <Font name="Purisa" size="24.0" />
