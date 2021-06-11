@@ -26,8 +26,6 @@ public class CreateGameSettingController {
     public Text id_difficulty;
     @FXML
     public void initialize() throws FileNotFoundException {
-        id_time_limit.setText(GlobalVar.timeLimit / 60 + ":" + GlobalVar.seconds + "0");
-        id_hints.setText(GlobalVar.hints ? "On" : "Off");
         if (GlobalVar.difficulty == 0) {
             id_difficulty.setText("Easy");
         } else if (GlobalVar.difficulty == 1) {
@@ -36,29 +34,6 @@ public class CreateGameSettingController {
             id_difficulty.setText("Hard");
         }
         GlobalVar.AllWords = GlobalVar.loadWords();
-    }
-    @FXML
-    protected void onHints() {
-        GlobalVar.hints = true;
-        id_hints.setText("On");
-    }
-    @FXML
-    protected void offHints() {
-        GlobalVar.hints = false;
-        id_hints.setText("Off");
-    }
-    @FXML
-    protected void addTimeLimit() {
-        if (GlobalVar.timeLimit == 210) return;
-        if (GlobalVar.timeLimit == 180) {
-            id_time_limit.setText("∞");
-            GlobalVar.timeLimit += 30;
-            return;
-        }
-        else GlobalVar.timeLimit += 30;
-        GlobalVar.seconds = GlobalVar.timeLimit % 60 / 10;
-        id_time_limit.setText(GlobalVar.timeLimit / 60 + ":" + GlobalVar.seconds + "0");
-        GlobalVar.timeLimit2 = GlobalVar.timeLimit;
     }
     @FXML
     protected void upDifficulty() {
@@ -71,20 +46,6 @@ public class CreateGameSettingController {
         if (GlobalVar.difficulty > 0) GlobalVar.difficulty--;
         if (GlobalVar.difficulty == 1) id_difficulty.setText("Mid");
         else id_difficulty.setText("Easy");
-    }
-    @FXML
-    protected void minusTimeLimit() {
-        if (GlobalVar.timeLimit == 0) {
-            id_time_limit.setText("∞");
-            return;
-        }
-        else GlobalVar.timeLimit -= 30;
-        if (GlobalVar.timeLimit == 0) {
-            id_time_limit.setText("∞");
-            return;
-        }
-        GlobalVar.seconds = GlobalVar.timeLimit % 60 / 10;
-        id_time_limit.setText(GlobalVar.timeLimit / 60 + ":" + GlobalVar.seconds + "0");
     }
     @FXML
     protected void toGame(ActionEvent e) throws IOException {

@@ -72,32 +72,6 @@
                 <Font name="Purisa Bold" size="25.0" />
             </font>
         </Text>
-        <Text fill="#fffff8" layoutX="178.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hints" textAlignment="CENTER" wrappingWidth="374.1999969482422">
-            <font>
-                <Font name="Purisa Bold" size="30.0" />
-            </font>
-        </Text>
-        <Button layoutX="935.0" layoutY="447.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#onHints" prefHeight="35.0" prefWidth="38.0" style="-fx-background-radius: 25;" stylesheets="@../Buttons/plus.css" text="+" textFill="#1b4c85">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-            <font>
-                <Font name="System Bold" size="16.0" />
-            </font>
-        </Button>
-        <Button layoutX="694.0" layoutY="447.0" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#offHints" prefHeight="35.0" prefWidth="38.0" style="-fx-background-radius: 25;" stylesheets="@../Buttons/minus.css" text="-" textAlignment="JUSTIFY" textFill="#1b4c85">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-            <font>
-                <Font name="System Bold" size="13.0" />
-            </font>
-        </Button>
-        <Text fx:id="id_hints" fill="#fffff8" layoutX="785.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Off" textAlignment="CENTER" wrappingWidth="102.0">
-            <font>
-                <Font name="Purisa Bold" size="25.0" />
-            </font>
-        </Text>
         <Text fill="#5e81f5" layoutX="262.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Settings">
             <font>
                 <Font name="Purisa Bold" size="75.0" />
