@@ -1,0 +1,16 @@
+.giveHint {
+	-fx-background-color:linear-gradient(to bottom, #00ff40 5%, #347a0b 100%);
+	-fx-border-radius: 120px;
+	-fx-background-radius: 120px;
+	-fx-font-family:Purisa Bold;
+	-fx-font-size:25px;
+	-fx-border-width: 1px;
+	-fx-border-color: #1f2f47;
+	-fx-border-style: solid;
+}
+.giveHint:hover {
+	-fx-background-color:linear-gradient(to bottom, #00ff40 100%, #347a0b 5%);
+}
+.giveHint:pressed {
+	-fx-background-color:linear-gradient(to bottom, #00ff40 5%, #347a0b 100%);
+}
