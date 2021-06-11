@@ -37,5 +37,10 @@
                 <Font name="Purisa" size="24.0" />
             </font>
         </Text>
+      <Button layoutX="514.0" layoutY="547.0" mnemonicParsing="false" onAction="#toLobby" prefHeight="70.0" prefWidth="123.0" stylesheets="@../Buttons/exit_button.css" text="CREATE" textAlignment="CENTER" textFill="#fff9f9">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>

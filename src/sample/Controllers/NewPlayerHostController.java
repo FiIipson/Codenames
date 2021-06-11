@@ -24,4 +24,11 @@ public class NewPlayerHostController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+    @FXML
+    public void toLobby(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Lobby.fxml")));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
