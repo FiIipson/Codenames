@@ -22,7 +22,6 @@ import static java.lang.Math.min;
 
 public class MultiHintController {
     public HintErrorCode validate(String word, String number) {
-        if (_timeLimit < 0) return HintErrorCode.NO_TIME;
         if (word.contains(" ")) return HintErrorCode.MORE_THAN_ONE_WORD;
         if (word.equals("")) return HintErrorCode.EMPTY_HINT;
         if (!number.matches("^[0-9]*$")) return HintErrorCode.NOT_A_NUMBER;
@@ -70,8 +69,6 @@ public class MultiHintController {
     Parent root;
     @FXML
     Stage stage;
-    @FXML
-    Text time;
     @FXML
     Text blueScore;
     @FXML
@@ -127,8 +124,6 @@ public class MultiHintController {
     @FXML
     public Button ee;
 
-    public static int _timeLimit = GlobalVar.timeLimit;
-    public boolean infinity = GlobalVar.timeLimit == 0 || GlobalVar.timeLimit == 210;
     static Timer timer;
 
     @FXML
@@ -136,51 +131,28 @@ public class MultiHintController {
         redScore.setText(String.valueOf(GlobalVar.redTotal - GlobalVar.redLeft));
         blueScore.setText(String.valueOf(GlobalVar.blueTotal - GlobalVar.blueLeft));
 
-        Button [] button = new Button[] {aa, ab, ac, ad, ae, ba, bb, bc, bd, be, ca, cb, cc, cd, ce, da, db, dc, dd, de, ea, eb, ec, ed, ee};
+        Button[] button = new Button[]{aa, ab, ac, ad, ae, ba, bb, bc, bd, be, ca, cb, cc, cd, ce, da, db, dc, dd, de, ea, eb, ec, ed, ee};
         int count = 0;
         for (Button b : button) {
             b.setText(GlobalVar.word[count].getText());
             // YOU MAY WANNA MAKE THESE COLORS PRETTIER
-            if (GlobalVar.word[count].getType() == GlobalVar.WordType.BLUE) b.setStyle("-fx-background-color: #00BFFF;" +
-                    "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
-            else if (GlobalVar.word[count].getType() == GlobalVar.WordType.RED) b.setStyle("-fx-background-color: red;" +
-                    "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
+            if (GlobalVar.word[count].getType() == GlobalVar.WordType.BLUE)
+                b.setStyle("-fx-background-color: #00BFFF;" +
+                        "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
+            else if (GlobalVar.word[count].getType() == GlobalVar.WordType.RED)
+                b.setStyle("-fx-background-color: red;" +
+                        "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
             else if (GlobalVar.word[count].getType() == GlobalVar.WordType.BOMB) b.setStyle("-fx-text-fill: #FFFFF0;" +
                     "-fx-background-color: black;" +
                     "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
             else if (GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_RED || GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BLUE ||
-                    GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_NEUTRAL || GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BOMB) b.setStyle("-fx-background-color: #00FF7F;" +
-                    "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
+                    GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_NEUTRAL || GlobalVar.word[count].getType() == GlobalVar.WordType.GUESSED_BOMB)
+                b.setStyle("-fx-background-color: #00FF7F;" +
+                        "-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px");
             else b.setStyle("-fx-font-size: " + min(23, 160 / GlobalVar.word[count].getText().length()) + "px;" +
                         "-fx-background-color: #F5F5F5;");
             count++;
         }
-
-        timer = new Timer();
-        _timeLimit = GlobalVar.timeLimit;
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                if (_timeLimit - (60 * (_timeLimit / 60)) < 10) {
-                    time.setText(_timeLimit / 60 + ":0" + (_timeLimit - (60 * (_timeLimit / 60))));
-                } else {
-                    time.setText(_timeLimit / 60 + ":" + (_timeLimit - (60 * (_timeLimit / 60))));
-                }
-                if (infinity) {
-                    time.setText("∞");
-                    timer.cancel();
-                    timer.purge();
-                } else {
-                    _timeLimit--;
-                }
-                if (_timeLimit < 0) {
-                    timer.cancel();
-                    timer.purge();
-
-                }
-            }
-        };
-        timer.schedule(task, 0, 1000);
     }
 
     @FXML
