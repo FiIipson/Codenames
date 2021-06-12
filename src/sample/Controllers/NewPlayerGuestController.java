@@ -56,7 +56,7 @@ public class NewPlayerGuestController {
                     try{
                         o = GlobalVar.csc.in.readObject();
                         GlobalVar.receivedBoard = (Board)o;
-                        System.out.println("[received board]");
+                        System.out.println("[received board (New Player Guest)]");
                     }catch (ClassCastException | OptionalDataException e){
                         System.out.println(o);
                     } catch (Exception e){

@@ -81,11 +81,11 @@ public class NewPlayerHostController {
             public void run() {
                 Object o = null;
                 while(GlobalVar.receivedBoard == null){
-                    try{
+                    try {
                         o = GlobalVar.csc.in.readObject();
                         GlobalVar.receivedBoard = (Board)o;
-                        System.out.println("[received board]");
-                    }catch (ClassCastException | OptionalDataException e){
+                        System.out.println("[received board (Host)]");
+                    } catch (ClassCastException | OptionalDataException e){
                         System.out.println(o);
                     } catch (Exception e){
                         try {

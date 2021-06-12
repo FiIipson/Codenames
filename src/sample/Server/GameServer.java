@@ -2,8 +2,6 @@ package sample.Server;
 
 import sample.Controllers.Board;
 import sample.Controllers.GlobalVar;
-import sample.Controllers.NewPlayerHostController;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,8 +11,6 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-
-
 
 public class GameServer {
     public static boolean end;
@@ -28,11 +24,11 @@ public class GameServer {
         end = false;
         System.out.println("[server started]");
         numOfPlayers= new AtomicInteger(0);
-        try{
+        try {
             serverSocket = new ServerSocket(PORT);
-        }catch (BindException bindException){
+        } catch (BindException bindException){
             throw new RuntimeException(bindException.getCause());
-        }catch(IOException ex){
+        } catch(IOException ex){
             ex.printStackTrace();
         }
         players = new ArrayList<>();
@@ -136,12 +132,11 @@ public class GameServer {
         }
     }
     public static void main(String[] args){
-        try{
+        try {
             GameServer gs = new GameServer();
             gs.acceptConnections();
-        }catch (RuntimeException runtimeException){
+        } catch (RuntimeException runtimeException){
             throw new RuntimeException(runtimeException.getCause());
         }
-
     }
 }

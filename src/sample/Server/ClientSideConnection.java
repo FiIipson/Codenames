@@ -3,8 +3,6 @@ package sample.Server;
 
 import sample.Controllers.Board;
 import sample.Controllers.GlobalVar;
-
-import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -56,7 +54,7 @@ public class ClientSideConnection{
         Board b = null;
         try{
             b = (Board) in.readObject();
-            System.out.println("[received board]");
+            System.out.println("[received board (Cl side connection)]");
         } catch (IOException | ClassNotFoundException | ClassCastException e) {
             //e.printStackTrace();
             throw new RuntimeException(e.getMessage());
@@ -68,7 +66,6 @@ public class ClientSideConnection{
     public ClientSideConnection(){
         try {
             socket = new Socket(GlobalVar.serverID, 9999);
-
             System.out.println("[connected to server]");
             out = new ObjectOutputStream(socket.getOutputStream());
             out.flush();
