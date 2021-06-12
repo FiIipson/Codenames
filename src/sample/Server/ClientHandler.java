@@ -15,8 +15,8 @@ public class ClientHandler implements Runnable{
     public ClientHandler(ArrayList<ClientHandler> players, Socket player) throws IOException {
         this.players = players;
         this.player = player;
-        out = new ObjectOutputStream(player.getOutputStream());
-        in = new ObjectInputStream(player.getInputStream());
+//        out = new ObjectOutputStream(player.getOutputStream());
+//        in = new ObjectInputStream(player.getInputStream());
     }
 
 

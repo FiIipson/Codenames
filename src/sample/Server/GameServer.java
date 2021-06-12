@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class GameServer {
     public static boolean end;
     //private static Board BOARD;
-    private static int number_of_players = 1;
+    private static int number_of_players = 3;
     private static ServerSocket serverSocket;
     private static AtomicInteger numOfPlayers;
     private static int PORT = 9999;

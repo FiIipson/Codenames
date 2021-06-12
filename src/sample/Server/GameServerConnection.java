@@ -12,8 +12,8 @@ public class GameServerConnection implements Runnable {
 
     public GameServerConnection(Socket socket) throws IOException {
         server = socket;
-        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+//        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+//        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
     }
 
     @Override
