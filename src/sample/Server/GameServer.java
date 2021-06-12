@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class GameServer {
     public static boolean end;
     private static Board BOARD;
-    private int number_of_players = 3;
+    private int number_of_players = 2;
     private ServerSocket serverSocket;
     private AtomicInteger numOfPlayers;
     private static int PORT = 9999;
@@ -33,7 +33,7 @@ public class GameServer {
         }
         players = new ArrayList<>();
     }
-    public void acceptConnections(){
+    public void acceptConnections() {
         try{
             System.out.println("[waiting for connections]");
             GlobalVar.serverReady = true;
@@ -48,8 +48,9 @@ public class GameServer {
                 if(BOARD != null) number_of_players = BOARD.getNumber_of_players();
             }
             System.out.println("[all players joined]");
+            System.out.println("Board is " + (BOARD == null ? "null" : "not-null"));
             sendToAll(BOARD);
-        }catch (IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -72,8 +73,10 @@ public class GameServer {
                 in = new ObjectInputStream(s.getInputStream());
                 out.writeInt(playerID);
                 out.flush();
-                if(playerID == 1){
+                if(playerID == 1) {
+                    System.out.println("**" + (BOARD == null ? "null" : "not-null"));
                     BOARD = (Board)in.readObject();
+                    System.out.println("**" + (BOARD == null ? "null" : "not-null"));
                     System.out.println("[board set by player 1 : " + playerName + "]");
                 }
                 //this.playerName = (String) in.readObject();
@@ -90,8 +93,8 @@ public class GameServer {
                     Thread.onSpinWait();
                 }
                 outer :while(true){
-                    for(ServerSideConnection s : connections){
-                        if(s.socket.isClosed()){
+                    for(ServerSideConnection s : connections) {
+                        if(s.socket.isClosed()) {
                             sendToAll(null);
                             Thread.currentThread().interrupt();
                             System.out.println("enddddddd");
@@ -122,11 +125,12 @@ public class GameServer {
     }
 
     public void sendToAll(Object o) throws IOException {
-        for(ServerSideConnection ssc : players){
-            try{
+        for (ServerSideConnection ssc : players) {
+            try {
+                System.out.println(o == null ? "przeslalem nullowy board" : "przeslalem nienullowy board");
                 ssc.out.writeObject(o);
                 ssc.out.flush();
-            }catch (SocketException socketException){
+            } catch (SocketException socketException){
                 Thread.currentThread().interrupt();
             }
         }

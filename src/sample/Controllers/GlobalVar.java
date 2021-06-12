@@ -89,7 +89,7 @@ public class GlobalVar {
 
     }
 
-    public static class Hint {
+    public static class Hint implements Serializable {
         String text;
         boolean is_red;
         int number;

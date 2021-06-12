@@ -45,7 +45,7 @@ public class NewPlayerHostController {
     public void toLobby(ActionEvent e) throws IOException {
         GlobalVar.loadWords();
         GlobalVar.setWords(GlobalVar.difficulty);
-        GlobalVar.board = new Board(GlobalVar.AllWords, null);
+        GlobalVar.board = new Board(GlobalVar.AllWords, new GlobalVar.Hint("", false, 0));
         try {
             GlobalVar.serverThread = new StartServer();
             GlobalVar.serverThread.start();
@@ -84,7 +84,7 @@ public class NewPlayerHostController {
                     try {
                         o = GlobalVar.csc.in.readObject();
                         GlobalVar.receivedBoard = (Board)o;
-                        System.out.println("[received board (Host)]");
+                        System.out.println("[received board (Host)]" + (o == null ? "null" : "not-null"));
                     } catch (ClassCastException | OptionalDataException e){
                         System.out.println(o);
                     } catch (Exception e){
