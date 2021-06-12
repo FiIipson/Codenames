@@ -99,6 +99,7 @@ public class GameServer {
                 outer :while(true){
                     for(ServerSideConnection s : connections) {
                         if(s.socket.isClosed()) {
+                            System.out.println("uwaga zara wysle nulla");
                             sendToAll(null);
                             Thread.currentThread().interrupt();
                             System.out.println("enddddddd");
@@ -109,7 +110,7 @@ public class GameServer {
                     System.out.println("[received board from " + playerName + "]");
                     sendToAll(BOARD);
                     GlobalVar.moveType moveType = (GlobalVar.moveType) in.readObject();
-                    sendToAll(moveType);
+                    //sendToAll(moveType);
                 }
 
             } catch (IOException | ClassNotFoundException ignored) {
