@@ -14,6 +14,7 @@ public class GlobalVar {
     static public String IP;
     static public StartServer serverThread;
     static public boolean serverReady;
+    static public String your_name;
 
     // RESULT SHOWN AT THE END GAME SCREEN
     static public Result result_;

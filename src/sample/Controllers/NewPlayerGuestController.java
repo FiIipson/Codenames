@@ -38,8 +38,8 @@ public class NewPlayerGuestController {
 
     @FXML
     public void toLobby(ActionEvent e) throws IOException {
-        GlobalVar.blueLeaderName = name.getText();
-        System.out.println(GlobalVar.blueLeaderName);
+        GlobalVar.your_name = name.getText();
+        System.out.println(GlobalVar.your_name);
 
         GlobalVar.IP = IPAddress.getText();
 

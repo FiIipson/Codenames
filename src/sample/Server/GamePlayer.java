@@ -15,7 +15,7 @@ public class GamePlayer {
         GameServerConnection gameServerConnection = new GameServerConnection(socket);
 
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-        out.writeObject(GlobalVar.redLeaderName);
+        out.writeObject(GlobalVar.your_name);
         out.flush();
 
         new Thread(gameServerConnection).start();

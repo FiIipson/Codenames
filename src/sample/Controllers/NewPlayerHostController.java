@@ -44,8 +44,8 @@ public class NewPlayerHostController {
     }
     @FXML
     public void toLobby(ActionEvent e) throws IOException, InterruptedException {
-        GlobalVar.redLeaderName = name.getText();
-        System.out.println(GlobalVar.redLeaderName);
+        GlobalVar.your_name = name.getText();
+        System.out.println(GlobalVar.your_name);
         GlobalVar.serverThread = new StartServer();
         GlobalVar.serverThread.start();
         GlobalVar.serverThread.setUncaughtExceptionHandler((t, e1) -> {
