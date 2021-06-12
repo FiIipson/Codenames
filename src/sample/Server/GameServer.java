@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.lang.Thread.sleep;
@@ -39,5 +40,11 @@ public class GameServer {
             System.out.println("[SERVER] Ready for another player!");
         }
 
+        //Random roles
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < number_of_players; ++i) numbers.add(i);
+        Collections.shuffle(numbers);
+        int count = 0;
+        for (GlobalVar.PlayerRole r : GlobalVar.PlayerRole.values()) players.get(numbers.get(count++)).role = r;
     }
 }
