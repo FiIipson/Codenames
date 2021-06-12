@@ -7,7 +7,7 @@ public class Board implements Serializable {
 
     ArrayList<GlobalVar.Word> words;
     GlobalVar.Hint last_hint;
-    int number_of_players = 2;
+    int number_of_players = 1;
     GlobalVar.Player[] players;
 
     public Board(ArrayList<GlobalVar.Word> words, GlobalVar.Hint last_hint) {

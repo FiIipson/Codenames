@@ -43,6 +43,7 @@ public class NewPlayerHostController {
     }
     @FXML
     public void toLobby(ActionEvent e) throws IOException {
+        GlobalVar.playerName = name.getText();
         GlobalVar.loadWords();
         GlobalVar.setWords(GlobalVar.difficulty);
         GlobalVar.board = new Board(GlobalVar.AllWords, new GlobalVar.Hint("", false, 0));
@@ -53,25 +54,23 @@ public class NewPlayerHostController {
                 @Override
                 public void uncaughtException(Thread t, Throwable e) {
                     t.interrupt();
-                    GlobalVar.serverThread=null;
+                    GlobalVar.serverThread = null;
                 }
             });
             while (!GlobalVar.serverReady) {
                 sleep(10);
                 if (GlobalVar.serverThread == null) {
+                    System.out.println("[This IP address is currently running a server]");
                     return;
                 }
+                System.out.println("[waited]");
             }
             GlobalVar.serverID = "";
-
         } catch (RuntimeException | InterruptedException runtimeException) {
             GlobalVar.serverThread.interrupt();
+            System.out.println("[This IP address is currently running a server]");
             return;
         }
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Lobby.fxml")));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
 
         CreateGameSettingController.setUpBoard = GlobalVar.board;
         GlobalVar.csc = new ClientSideConnection();
@@ -80,14 +79,20 @@ public class NewPlayerHostController {
             @Override
             public void run() {
                 Object o = null;
-                while(GlobalVar.receivedBoard == null){
+                while (GlobalVar.receivedBoard == null) {
                     try {
                         o = GlobalVar.csc.in.readObject();
-                        GlobalVar.receivedBoard = (Board)o;
+                        System.out.println(".");
+                        GlobalVar.receivedBoard = (Board) o;
+                        if (GlobalVar.receivedBoard == null) {
+                            System.out.println("elo");
+                        }
                         System.out.println("[received board (Host)]" + (o == null ? "null" : "not-null"));
                     } catch (ClassCastException | OptionalDataException e){
                         System.out.println(o);
                     } catch (Exception e){
+//                        System.out.println("second");
+//                        e.printStackTrace();
                         try {
                             GlobalVar.csc.socket.close();
                         }
@@ -99,22 +104,14 @@ public class NewPlayerHostController {
                         }
                     }
                 }
-//                Platform.runLater(new Runnable() {
-//                    @Override
-//                    public void run() {
-////                        try {
-////                            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Lobby.fxml")));
-////                        } catch (IOException ioException) {
-////                            ioException.printStackTrace();
-////                        }
-////                        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-////                        stage.setScene(new Scene(root));
-////                        stage.show();
-//                    }
-//                });
                 Thread.currentThread().interrupt();
             }
         });
         GlobalVar.joinThread.start();
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Lobby.fxml")));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

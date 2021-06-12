@@ -15,11 +15,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class GameServer {
     public static boolean end;
     private static Board BOARD;
-    private int number_of_players = 2;
+    private int number_of_players = 1;
     private ServerSocket serverSocket;
     private AtomicInteger numOfPlayers;
     private static int PORT = 9999;
     private static ArrayList<ServerSideConnection> players;
+
     public GameServer(){
         end = false;
         System.out.println("[server started]");
@@ -33,13 +34,14 @@ public class GameServer {
         }
         players = new ArrayList<>();
     }
+
     public void acceptConnections() {
         try{
             System.out.println("[waiting for connections]");
             GlobalVar.serverReady = true;
-            while(numOfPlayers.get() < number_of_players && !end){
+            while(numOfPlayers.get() < number_of_players && !end) {
                 Socket client = serverSocket.accept();
-                ServerSideConnection ssc = new ServerSideConnection(client,players, numOfPlayers.incrementAndGet());
+                ServerSideConnection ssc = new ServerSideConnection(client, players, numOfPlayers.incrementAndGet());
                 players.add(ssc);
                 System.out.println("[new thread created]");
                 Thread t = new Thread(ssc);
@@ -54,7 +56,7 @@ public class GameServer {
             ex.printStackTrace();
         }
     }
-    private class ServerSideConnection implements Runnable{
+    private class ServerSideConnection implements Runnable {
 
         private Socket socket;
         private ArrayList<ServerSideConnection> connections;
@@ -77,10 +79,12 @@ public class GameServer {
                     System.out.println("**" + (BOARD == null ? "null" : "not-null"));
                     BOARD = (Board)in.readObject();
                     System.out.println("**" + (BOARD == null ? "null" : "not-null"));
+                    this.playerName = (String) in.readObject();
                     System.out.println("[board set by player 1 : " + playerName + "]");
+                } else {
+                    this.playerName = (String) in.readObject();
                 }
-                //this.playerName = (String) in.readObject();
-                //BOARD.getPlayers()[playerID - 1].setName(playerName);
+                BOARD.getPlayers()[playerID - 1].setName(playerName);
             }catch(IOException | ClassNotFoundException ex){
                 ex.printStackTrace();
             }

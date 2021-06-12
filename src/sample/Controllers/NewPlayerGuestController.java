@@ -38,7 +38,7 @@ public class NewPlayerGuestController {
 
     @FXML
     public void toLobby(ActionEvent e) throws IOException {
-        //GlobalVar.playerName = finalName;
+        GlobalVar.playerName = name.getText();
         GlobalVar.serverID = IPAddress.getText();
 
         try{
@@ -56,10 +56,12 @@ public class NewPlayerGuestController {
                     try{
                         o = GlobalVar.csc.in.readObject();
                         GlobalVar.receivedBoard = (Board)o;
-                        System.out.println("[received board (New Player Guest)]");
-                    }catch (ClassCastException | OptionalDataException e){
+                        System.out.println("[received board (New Player Guest)]" + (o == null ? "null" : "not-null"));
+                    } catch (ClassCastException | OptionalDataException e){
+                        e.printStackTrace();
                         System.out.println(o);
                     } catch (Exception e){
+                        e.printStackTrace();
                         try {
                             GlobalVar.csc.socket.close();
                         }
@@ -67,16 +69,18 @@ public class NewPlayerGuestController {
                             ioException.printStackTrace();
                         }catch (NullPointerException ignored){}
                         //GameJoiningWindow.end=false;
+                        e.printStackTrace();
                         break;
                     }
                 }
+                System.out.println();
 //                Platform.runLater(new Runnable() {
 //                    @Override
 //                    public void run() {
 //                        HanabiMain.gameInformation.settingsStage.close();
 //                    }
 //                });
-                Thread.currentThread().interrupt();
+                System.out.println("[received board (New Player Guest)]" + (o == null ? "nullll" : "not-nulllll"));
             }
         });
         t.start();

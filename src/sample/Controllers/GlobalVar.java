@@ -125,7 +125,7 @@ public class GlobalVar {
         }
     }
 
-    public static class Player {
+    public static class Player implements Serializable {
         boolean is_operative;
         boolean is_red;
         String name;
