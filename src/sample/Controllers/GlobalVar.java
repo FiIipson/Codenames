@@ -57,7 +57,7 @@ public class GlobalVar {
         BLUE, RED, NEUTRAL, BOMB, GUESSED_RED, GUESSED_BLUE, GUESSED_NEUTRAL, GUESSED_BOMB
     }
 
-    enum PlayerRole {
+    public enum PlayerRole {
         BLUE_LEADER, RED_LEADER, BLUE_OPERATIVE, RED_OPERATIVE
     }
 

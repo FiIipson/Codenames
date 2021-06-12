@@ -17,7 +17,7 @@ public class GameServer {
     private static ServerSocket serverSocket;
     private static AtomicInteger numOfPlayers;
     private static int PORT = 9999;
-    private static ArrayList<ClientHandler> players;
+    private static ArrayList<PlayerHandler> players;
 
     public static void main() throws IOException, InterruptedException {
         serverSocket = new ServerSocket(PORT);
@@ -30,10 +30,10 @@ public class GameServer {
             System.out.println("[SERVER] Waiting for player!");
             Socket player = serverSocket.accept();
             System.out.println("[SERVER] Connected a player!");
-            ClientHandler clientHandler = new ClientHandler(players, player);
-            players.add(clientHandler);
+            PlayerHandler playerHandler = new PlayerHandler(players, player);
+            players.add(playerHandler);
             System.out.println("[SERVER] " + "Player " + numOfPlayers.incrementAndGet() + " joined.");
-            Thread t = new Thread(clientHandler);
+            Thread t = new Thread(playerHandler);
             t.start();
             sleep(100);
             System.out.println("[SERVER] Ready for another player!");
