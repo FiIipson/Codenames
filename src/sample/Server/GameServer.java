@@ -31,10 +31,10 @@ public class GameServer {
             ClientHandler clientHandler = new ClientHandler(players, player);
             players.add(clientHandler);
             System.out.println("[SERVER] " + numOfPlayers.incrementAndGet() + " player joined");
-            if (numOfPlayers.get() > 1) {
-                String name = (String)ClientHandler.in.readObject();
-                System.out.println(name);
-            }
+            //if (numOfPlayers.get() > 1) {
+            String name = (String)GameServerConnection.in.readObject();
+            System.out.println(name);
+            //}
         }
     }
 }

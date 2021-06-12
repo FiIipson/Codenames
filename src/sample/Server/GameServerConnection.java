@@ -7,8 +7,8 @@ import java.net.Socket;
 
 public class GameServerConnection implements Runnable {
     private Socket server;
-    ObjectOutputStream out;
-    ObjectInputStream in;
+    public static ObjectOutputStream out;
+    public static ObjectInputStream in;
 
     public GameServerConnection(Socket socket) throws IOException, ClassNotFoundException {
         server = socket;
