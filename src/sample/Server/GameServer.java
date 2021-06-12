@@ -27,6 +27,9 @@ public class GameServer {
         numOfPlayers = new AtomicInteger(0);
         players = new ArrayList<>();
         GlobalVar.serverReady = true;
+        GlobalVar.loadWords();
+        GlobalVar.setWords(GlobalVar.difficulty);
+        GlobalVar.current_board = new BOARD(GlobalVar.word, new GlobalVar.Hint("", false, -1));
 
         while (numOfPlayers.get() < number_of_players) {
             System.out.println("[SERVER] Waiting for player!");
@@ -50,9 +53,6 @@ public class GameServer {
             players.get(numbers.get(count++)).role = r;
             System.out.println("Rola " + players.get(numbers.get(count - 1)).name + " to: " + players.get(numbers.get(count - 1)).role);
         }
-        GlobalVar.loadWords();
-        GlobalVar.setWords(GlobalVar.difficulty);
-        GlobalVar.current_board = new BOARD(GlobalVar.word, new GlobalVar.Hint("", false, -1));
         sendToAll(GlobalVar.current_board);
         sendToAll(players);
     }

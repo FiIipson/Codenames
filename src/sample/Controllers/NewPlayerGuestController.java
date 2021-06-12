@@ -43,7 +43,7 @@ public class NewPlayerGuestController {
 
         GlobalVar.IP = IPAddress.getText();
 
-        GamePlayer.main();
+        GamePlayer gp = new GamePlayer();
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Lobby.fxml")));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();

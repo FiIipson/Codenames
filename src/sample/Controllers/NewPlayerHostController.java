@@ -1,5 +1,6 @@
 package sample.Controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,7 +59,31 @@ public class NewPlayerHostController {
         }
         GlobalVar.IP = "";
 
-        GamePlayer.main();
+        GamePlayer gp = new GamePlayer();
+        GlobalVar.current_board = null;
+        GlobalVar.joinThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Object o = null;
+                while (GlobalVar.current_board == null) {
+                    try{
+                        System.out.println("biorę tablice");
+                        o = gp.in.readObject();
+                        GlobalVar.current_board = (BOARD)o;
+                        System.out.println("[received board]");
+                    }catch (ClassCastException | OptionalDataException e){
+                        System.out.println(o);
+                    } catch (Exception e){
+                        try {
+                            gp.socket.close();
+                        }
+                        catch (IOException ioException) {
+                            ioException.printStackTrace();
+                        }
+                    }
+                }
+            }
+        });
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Scenes/Lobby.fxml")));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();

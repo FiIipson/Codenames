@@ -3,10 +3,12 @@ package sample.Server;
 import sample.Controllers.BOARD;
 import sample.Controllers.GlobalVar;
 
+import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class PlayerHandler implements Runnable{
@@ -33,6 +35,7 @@ public class PlayerHandler implements Runnable{
             while (GameServer.numOfPlayers.get() < GameServer.number_of_players && !GameServer.end) {
                 Thread.onSpinWait();
             }
+            System.out.println("Player " + name + " started working");
             outer: while(true) {
                 for (PlayerHandler ph : players) {
                     if (ph.player.isClosed()) {
@@ -41,7 +44,9 @@ public class PlayerHandler implements Runnable{
                         break outer;
                     }
                 }
+                System.out.println("1");
                 GlobalVar.current_board = (BOARD) in.readObject();
+                System.out.println("2");
                 System.out.println("Received board from player: " + name);
                 GameServer.sendToAll(GlobalVar.current_board);
             }

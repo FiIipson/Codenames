@@ -1,8 +1,9 @@
 package sample.Controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BOARD {
+public class BOARD implements Serializable {
     GlobalVar.Word[] words;
     GlobalVar.Hint hint;
 

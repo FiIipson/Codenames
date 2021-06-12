@@ -9,16 +9,19 @@ import java.net.Socket;
 
 public class GamePlayer {
 
+    public Socket socket;
+    public ObjectInputStream in;
+    public ObjectOutputStream out;
 
-
-    public static void main() throws IOException {
-        Socket socket = new Socket(GlobalVar.IP, 9999);
+    public GamePlayer() throws IOException {
+        socket = new Socket(GlobalVar.IP, 9999);
 
         GameServerConnection gameServerConnection = new GameServerConnection(socket);
 
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         out.writeObject(GlobalVar.your_name);
         out.flush();
+        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 
         new Thread(gameServerConnection).start();
     }
