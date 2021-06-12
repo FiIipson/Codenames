@@ -14,6 +14,7 @@ public class PlayerHandler implements Runnable{
     ObjectOutputStream out;
     ObjectInputStream in;
     GlobalVar.PlayerRole role;
+    String Name;
 
     public PlayerHandler(ArrayList<PlayerHandler> players, Socket player) throws IOException {
         this.players = players;

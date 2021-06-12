@@ -38,5 +38,6 @@ public class GameServer {
             sleep(100);
             System.out.println("[SERVER] Ready for another player!");
         }
+
     }
 }
