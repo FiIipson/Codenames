@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #bddbfa; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.LobbyController">
+    <cursor>
+        <Cursor fx:constant="WAIT" />
+    </cursor>
+    <children>
+        <Text fill="#1b4c85" layoutX="280.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waiting for other players&#10;to join this party&#10;" textAlignment="CENTER" wrappingWidth="592.7294921875">
+            <font>
+                <Font name="Purisa Bold" size="35.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="515.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAITING...">
+            <font>
+                <Font name="Purisa Bold" size="17.0" />
+            </font>
+        </Text>
+        <ProgressIndicator layoutX="549.0" layoutY="375.0" />
+    </children>
+</AnchorPane>
