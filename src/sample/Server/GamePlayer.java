@@ -9,7 +9,7 @@ import java.net.Socket;
 
 public class GamePlayer {
 
-    public static void main() throws IOException {
+    public static void main() throws IOException, ClassNotFoundException {
         Socket socket = new Socket(GlobalVar.IP, 9999);
 
         GameServerConnection gameServerConnection = new GameServerConnection(socket);

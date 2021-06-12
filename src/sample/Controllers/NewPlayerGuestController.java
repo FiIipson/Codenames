@@ -37,7 +37,7 @@ public class NewPlayerGuestController {
     }
 
     @FXML
-    public void toLobby(ActionEvent e) throws IOException {
+    public void toLobby(ActionEvent e) throws IOException, ClassNotFoundException {
         GlobalVar.blueLeaderName = name.getText();
         System.out.println(GlobalVar.blueLeaderName);
 

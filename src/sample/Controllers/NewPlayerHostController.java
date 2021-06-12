@@ -43,7 +43,7 @@ public class NewPlayerHostController {
         stage.show();
     }
     @FXML
-    public void toLobby(ActionEvent e) throws IOException, InterruptedException {
+    public void toLobby(ActionEvent e) throws IOException, InterruptedException, ClassNotFoundException {
         GlobalVar.redLeaderName = name.getText();
         System.out.println(GlobalVar.redLeaderName);
         GlobalVar.serverThread = new StartServer();

@@ -10,10 +10,10 @@ public class GameServerConnection implements Runnable {
     ObjectOutputStream out;
     ObjectInputStream in;
 
-    public GameServerConnection(Socket socket) throws IOException {
+    public GameServerConnection(Socket socket) throws IOException, ClassNotFoundException {
         server = socket;
-//        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-//        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
     }
 
     @Override

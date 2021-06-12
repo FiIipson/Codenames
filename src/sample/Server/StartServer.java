@@ -7,7 +7,7 @@ public class StartServer extends Thread{
     public void run() {
         try {
             GameServer.main();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

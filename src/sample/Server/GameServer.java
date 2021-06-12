@@ -17,7 +17,7 @@ public class GameServer {
     private static int PORT = 9999;
     private static ArrayList<ClientHandler> players;
 
-    public static void main() throws IOException {
+    public static void main() throws IOException, ClassNotFoundException {
         serverSocket = new ServerSocket(PORT);
         System.out.println("[SERVER] Started!");
         numOfPlayers = new AtomicInteger(0);
@@ -31,6 +31,10 @@ public class GameServer {
             ClientHandler clientHandler = new ClientHandler(players, player);
             players.add(clientHandler);
             System.out.println("[SERVER] " + numOfPlayers.incrementAndGet() + " player joined");
+            if (numOfPlayers.get() > 1) {
+                String name = (String)ClientHandler.in.readObject();
+                System.out.println(name);
+            }
         }
     }
 }

@@ -125,7 +125,7 @@ public class GlobalVar {
     public static class Player implements Serializable {
         boolean is_operative;
         boolean is_red;
-        String name;
+        static String name;
 
         public Player(boolean is_operative, boolean is_red, String name) {
             this.is_operative = is_operative;
@@ -141,7 +141,7 @@ public class GlobalVar {
             return is_red;
         }
 
-        public String getName() {
+        public static String getName() {
             return name;
         }
 
