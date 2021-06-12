@@ -1,5 +1,6 @@
 package sample.Server;
 
+import sample.Controllers.BOARD;
 import sample.Controllers.GlobalVar;
 
 import java.io.IOException;
@@ -14,13 +15,13 @@ import static java.lang.Thread.sleep;
 public class GameServer {
     public static boolean end;
     //private static Board BOARD;
-    private static int number_of_players = 3;
+    public static int number_of_players = 2;
     private static ServerSocket serverSocket;
-    private static AtomicInteger numOfPlayers;
+    public static AtomicInteger numOfPlayers;
     private static int PORT = 9999;
     private static ArrayList<PlayerHandler> players;
 
-    public static void main() throws IOException, InterruptedException {
+    public static void main() throws IOException, InterruptedException, ClassNotFoundException {
         serverSocket = new ServerSocket(PORT);
         System.out.println("[SERVER] Started!");
         numOfPlayers = new AtomicInteger(0);
@@ -45,6 +46,25 @@ public class GameServer {
         for (int i = 0; i < number_of_players; ++i) numbers.add(i);
         Collections.shuffle(numbers);
         int count = 0;
-        for (GlobalVar.PlayerRole r : GlobalVar.PlayerRole.values()) players.get(numbers.get(count++)).role = r;
+        for (GlobalVar.PlayerRole r : GlobalVar.PlayerRole.values()) {
+            players.get(numbers.get(count++)).role = r;
+            System.out.println("Rola " + players.get(numbers.get(count - 1)).name + " to: " + players.get(numbers.get(count - 1)).role);
+        }
+        GlobalVar.loadWords();
+        GlobalVar.setWords(GlobalVar.difficulty);
+        GlobalVar.current_board = new BOARD(GlobalVar.word, new GlobalVar.Hint("", false, -1));
+        sendToAll(GlobalVar.current_board);
+        sendToAll(players);
+    }
+
+    public static void sendToAll(Object o) {
+        for (PlayerHandler ph : players) {
+            try {
+                ph.out.writeObject(o);
+                ph.out.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

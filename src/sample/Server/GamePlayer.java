@@ -9,6 +9,8 @@ import java.net.Socket;
 
 public class GamePlayer {
 
+
+
     public static void main() throws IOException {
         Socket socket = new Socket(GlobalVar.IP, 9999);
 

@@ -15,6 +15,7 @@ public class GlobalVar {
     static public StartServer serverThread;
     static public boolean serverReady;
     static public String your_name;
+    static public BOARD current_board;
 
     // RESULT SHOWN AT THE END GAME SCREEN
     static public Result result_;
