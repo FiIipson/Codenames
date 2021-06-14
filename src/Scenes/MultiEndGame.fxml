@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1150.0" snapToPixel="false" style="-fx-background-color: #bddbfa; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.MultiEndGameController">
+    <Button layoutX="506.0" layoutY="536.0" mnemonicParsing="false" onAction="#back" prefHeight="71.0" prefWidth="138.0" stylesheets="@../Buttons/exit_button.css" text="EXIT" textAlignment="CENTER" textFill="#fff9f9">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Text fill="#5e81f5" layoutX="337.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RESULTS">
+        <font>
+            <Font name="Purisa Bold" size="96.0" />
+        </font>
+    </Text>
+    <Text fx:id="to_be_shown" layoutX="18.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="1113.754997253418" AnchorPane.bottomAnchor="376.6400032043457" AnchorPane.topAnchor="302.8400001525879">
+        <font>
+            <Font name="Purisa Bold" size="43.0" />
+        </font>
+    </Text>
+</AnchorPane>

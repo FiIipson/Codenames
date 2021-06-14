@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1150.0" style="-fx-background-color: #bddbfa; -fx-background-color: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ChangeScreenController">
+    <cursor>
+        <Cursor fx:constant="WAIT" />
+    </cursor>
+    <children>
+        <Text fill="#1b4c85" layoutX="279.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Give Your Device To User" textAlignment="CENTER" wrappingWidth="592.7294921875">
+            <font>
+                <Font name="Purisa Bold" size="35.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="514.0" layoutY="643.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAITING...">
+            <font>
+                <Font name="Purisa Bold" size="17.0" />
+            </font>
+        </Text>
+        <Button layoutX="491.0" layoutY="316.0" mnemonicParsing="false" onAction="#toGame" prefHeight="101.0" prefWidth="171.0" stylesheets="@../Buttons/backToGame.css" text="READY" textFill="#fffdfd">
+            <font>
+                <Font name="Purisa Bold" size="31.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Text fx:id="playerName" fill="WHITE" layoutX="280.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RedOne" textAlignment="CENTER" wrappingWidth="592.7294921875">
+            <font>
+                <Font name="Purisa Bold" size="35.0" />
+            </font>
+        </Text>
+        <ProgressIndicator layoutX="550.0" layoutY="544.0" />
+    </children>
+</AnchorPane>
