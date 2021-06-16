@@ -2,4 +2,5 @@
 **Authors**: Filip Jasiński, Rafał Loska, Michał Sowiński\
 **Description**: An app for "Codenames" - a card, multiplayer game.\
 **Future features**:
-* Online mode allowing to play real multiplayer round of Codenames
+
+# How to play
