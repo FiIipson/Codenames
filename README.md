@@ -4,7 +4,7 @@
 **Future features**:
 
 # How to play
-**What you need:**\
+**What you need**:
 - Some IDE for example Intellij IDEA
 - javaFX 16 SDK 
 
