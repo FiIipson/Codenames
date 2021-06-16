@@ -10,7 +10,7 @@
 
 **What to do**:
 - set up your IDE so it can run main.java (File -> Project Structure -> Libraries -> add path to javaFX)
-- set you your run/debug configuration (Run -> Edit Comfigurations -> Click + -> Add Application -> Modify options -> Add VM options
+- set up your run/debug configuration (Run -> Edit Comfigurations -> Click + -> Add Application -> Modify options -> Add VM options
 and paste this to VM options: --module-path /path/to/SDK --add-modules javafx.controls,javafx.fxml)
 
 **Online**:\
