@@ -8,4 +8,6 @@
 - Some IDE for example Intellij IDEA
 - javaFX 16 SDK 
 
-**What to do**\
+**What to do**
+- set up your IDE so it can run main.java (File -> Project Structure -> Libraries -> add path to javaFX)
+- set you your run/debug configuration (Run -> Edit Comfigurations -> Add Application -> Add VM options -> paste this: --module-path /path/to/SDK --add-modules javafx.controls,javafx.fxml
