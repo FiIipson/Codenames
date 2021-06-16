@@ -13,6 +13,6 @@
 - set you your run/debug configuration (Run -> Edit Comfigurations -> Click + -> Add Application -> Modify options -> Add VM options
 and paste this to VM options: --module-path /path/to/SDK --add-modules javafx.controls,javafx.fxml)
 
-**Online**:
+**Online**:\
 If you want to play online you need to be in the same LAN. It can be provided by Hamachi (https://hamachi.en.softonic.com).
 When you have already done that the host has to create game and the players need to copy his IPv4 address and connect.
